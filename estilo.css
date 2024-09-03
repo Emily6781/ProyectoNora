@@ -14,8 +14,16 @@ h2{
 }
 body{
     position: absolute;
-    background-color: pink;
+    background-color: #B26400;
+    color: white
 }
+<<<<<<< Updated upstream
+#imagenC{
+
+    width: 1535px;
+    height: 350px;
+}
+=======
 .cafe{
     width: 200px;
     height: 50px;
@@ -62,4 +70,3 @@ footer{
     background-color: black;
     width: 100%;
     
-}
