@@ -17,15 +17,8 @@ body{
     background-color: #B26400;
     color: white
 }
-<<<<<<< Updated upstream
 #imagenC{
-
-    width: 1535px;
+    width: 100%;
     height: 350px;
+    object-position: bottom;
 }
-=======
-.cafe{
-    width: 200px;
-    height: 50px;
-}
->>>>>>> Stashed changes
