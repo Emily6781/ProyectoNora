@@ -1,6 +1,6 @@
 *{
     margin: 0px;
-    padding: auto;
+    padding: 0px;
 }
 h1{
     font-weight: bold;
@@ -32,6 +32,7 @@ body{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 table {
@@ -67,6 +68,10 @@ th{
     width: 600px;
     height: 450px;
     border: 0;
+    align-items: center;
+}
+#mapDiv ul{
+    text-decoration: none;
 }
 #experencia{
     margin: 10px;
