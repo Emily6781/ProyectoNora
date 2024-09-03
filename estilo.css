@@ -53,13 +53,20 @@ th{
 
 #mapDiv{
     background-color: indigo;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid darkgoldenrod;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 80%;
-    margin: 0 auto;
+    margin: 100px;
 }
-
+#mapDiv iframe{
+    width: 600px;
+    height: 450px;
+    border: 0;
+}
+#experencia{
+    margin: 10px;
+}
 footer{
     background-color: black;
     width: 100%;
