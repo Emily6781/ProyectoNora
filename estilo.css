@@ -56,16 +56,19 @@ img {
 table {
     border-collapse: collapse;
     width: 100%;
+    border-radius: 5px;
 }
 
 tr:hover {
     background-color: coral;
+    border-radius: 5px;
 }
 
 th, td {
-    border: 1px solid #000; /* Definido el tipo de borde */
+    border: 1px solid #fff; /* Definido el tipo de borde */
     padding: 8px;
     text-align: center;
+    border-radius: 5px;
 }
 
 th {
@@ -106,5 +109,12 @@ footer {
     background-color: black;
     width: 100%;
     text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+textarea{
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
     padding: 10px;
 }
