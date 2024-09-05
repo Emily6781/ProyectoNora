@@ -43,6 +43,12 @@ img {
     margin-bottom: 30px;
 }
 
+#imagenA {
+    width: 20%;
+    height: 20%;
+    margin-bottom: 30px;
+}
+
 #tableDiv {
     background-color: rgb(240, 180, 67);
     padding: 20px;
