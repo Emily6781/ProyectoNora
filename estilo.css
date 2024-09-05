@@ -126,6 +126,7 @@ textarea{
     margin: 10px;
     padding: 5px;
     border-radius: 10px;
+    border: #fff solid 2px;
     padding: 10px;
 }
 #encuesta p{
