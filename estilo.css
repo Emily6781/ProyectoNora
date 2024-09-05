@@ -25,6 +25,7 @@ h1 {
     font-weight: bold;
     font-size: 3em; /* Ajustado a em para mejor adaptabilidad */
     font-style: italic;
+    margin: 10px;
 }
 
 h2 {
@@ -106,6 +107,8 @@ th {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin: 20px auto;
     width: 80%;
+    border-radius: 5px;
+
 }
 
 #gameDiv ul {
@@ -153,6 +156,7 @@ textarea{
     font-weight: lighter;
     padding: 10px;
     color: #896129;
+    margin: 10px;
 }
 #encuesta{
     margin: 10px;
@@ -164,4 +168,11 @@ textarea{
 #encuesta p{
     font-size: 20px;
     font-weight: bold;
+}
+ input{
+    background-color: transparent;
+    border: #fff solid 2px;
+    border-radius: 10px;
+    padding: 5px;
+    color: aliceblue;
 }
