@@ -105,7 +105,11 @@ th {
 #Monito {
     width: 100px;
     height: auto;
-    margin: 10px;
+    margin: 5px;
+}
+
+#monito:hover{
+    width: 200px;
 }
 
 footer {
