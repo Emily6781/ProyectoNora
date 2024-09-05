@@ -99,6 +99,15 @@ th {
     width: 80%;
 }
 
+#listDiv {
+    background-color: #1E1A1A;
+    padding: 30px;
+    border: 1px solid darkgoldenrod;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+}
+
 #gameDiv ul {
     list-style-type: none;
 }
