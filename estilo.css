@@ -76,7 +76,7 @@ th {
 }
 
 #mapDiv {
-    background-color: indigo;
+    background-color: #571813;
     padding: 30px;
     border: 1px solid darkgoldenrod;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -113,7 +113,7 @@ th {
 }
 
 footer {
-    background-color: black;
+    background-color: #1D76F2;
     width: 100%;
     text-align: center;
     padding: 10px;
