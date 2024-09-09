@@ -108,7 +108,61 @@ th {
     margin: 20px auto;
     width: 80%;
     border-radius: 5px;
+    overflow: hidden; 
+}
 
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 50%; 
+}
+
+.list-item {
+    display: inline-block;
+    background-color: #f4e1d2;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 0 0 50px; 
+}
+
+.list-item h3 {
+    color: #6F4E37;
+}
+
+.list-item ul li {
+    color: #6F4E37;
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* Animación para el carrusel */
+@keyframes carousel {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    50% { transform: translateX(-300%); }
+    75% { transform: translateX(-400%); }
+    100% { transform: translateX(0); }
+}
+
+.carousel-slide {
+    animation: carousel 25s infinite;
+}
+
+/* Ajustar ancho según elementos */
+.carousel-slide .list-item {
+    flex: 0 0 100%; 
 }
 
 #gameDiv ul {
