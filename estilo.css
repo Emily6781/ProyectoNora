@@ -50,6 +50,11 @@ img {
     margin-bottom: 30px;
 }
 
+#credencial {
+    width: 35%;
+    height: 50%;
+}
+
 #tableDiv {
     background-color: rgb(240, 180, 67);
     padding: 20px;
@@ -108,7 +113,7 @@ th {
     margin: 20px auto;
     width: 80%;
     border-radius: 5px;
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .carousel-container {
@@ -122,7 +127,7 @@ th {
 .carousel-slide {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 50%; 
+    width: 50%;
 }
 
 .list-item {
@@ -133,7 +138,7 @@ th {
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    flex: 0 0 50px; 
+    flex: 0 0 50px;
 }
 
 .list-item h3 {
@@ -162,7 +167,7 @@ th {
 
 /* Ajustar ancho según elementos */
 .carousel-slide .list-item {
-    flex: 0 0 100%; 
+    flex: 0 0 100%;
 }
 
 #gameDiv ul {
