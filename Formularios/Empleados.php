@@ -10,14 +10,14 @@
 <br>Nombre<br>
 <input type="text" name="name"> <br>
 
-<br>Nombre<br>
-<input type="text" name="name"> <br>
+<br>Apellido Paterno<br>
+<input type="text" name="ApeP"> <br>
 
-<br>Nombre<br>
-<input type="text" name="name"> <br>
+<br>Apellido Materno<br>
+<input type="text" name="ApeM"> <br>
 
-<br>Nombre<br>
-<input type="date" name="name"> <br>
+<br>Fecha de nacimiento<br>
+<input type="date" name="FechaNac"> <br>
 
 
 <input type="submit" value="Enviar"> <input type="reset" value="Borrar">
