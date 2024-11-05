@@ -18,6 +18,14 @@
         Tu navegador no soporta la etiqueta de audio.
       </audio>
       <h1>"Mucho más que los demás"</h1><br>
+      <nav>
+        <ul>
+          <li><a href="">Clientes</a></li>
+          <li><a href="">Empleados</a></li>
+          <li><a href="">Productos</a></li>
+          <li><a href="">Ventas</a></li>
+        </ul>
+      </nav>
 
       <div id="listDiv">
         <h2>Lo más atractivo de nuestro menú</h2>
@@ -192,67 +200,76 @@
       </div>
 
       <img src="Imagenes/Wendy.png" alt="Wendy" id="Monito">
-
-      <form action="mailtoie-mail" method="post" enctype="text/plain" id="experiencia">
-        <h2>Encuesta de satisfacción de café ++:</h2>
-        <div id="encuesta">
-          <p>En la siguiente escala, cómo calificaria su experiencia en local</p><br>
-          <input type="radio" name="ExpL" value="Excelente"/>Excelente
-          <input type="radio" name="ExpL" value="Buena" />Buena
-          <input type="radio" name="ExpL" value="Neutra" />Neutra
-          <input type="radio" name="ExpL" value="Mala" />Mala
-          <input type="radio" name="ExpL" value="Terrible" />Terrible
-        </div>
-        <div id="encuesta">
-          <p>Describa cuál fue su modalidad de visita</p><br>
-          <input type="radio" name="Modalidad" value="Comedor"/>Comer en el local
-          <input type="radio" name="Modalidad" value="Llevar" />Para llevar
-        </div>
-        <div id="encuesta">
-          <p>Qué tan satisfecho estubo con su pedido</p><br>
-          <input type="radio" name="Spedido" value="Excelente"/>Mucho
-          <input type="radio" name="Spedido" value="Buena" />Bien
-          <input type="radio" name="Spedido" value="Neutra" />Suficiente
-          <input type="radio" name="Spedido" value="Mala" />Poco
-          <input type="radio" name="Spedido" value="Terrible" />Nada
-         </div>
-        <div id="encuesta">
-          <p>En la siguiente escala, como calificaria el tiempo que espero sus alimentos</p><br>
-          <input type="radio" name="Calimentos" value="Excelente"/>Excelente
-          <input type="radio" name="Calimentos" value="Buena" />Bueno
-          <input type="radio" name="Calimentos" value="Neutra" />Neutro
-          <input type="radio" name="Calimentos" value="Mala" />Malo
-          <input type="radio" name="Calimentos" value="Terrible" />Terrible
-        </div>
-        <div id="encuesta">
-          <p>Esta de acuerdo con los precios de los productos que compró</p><br>
-          <input type="radio" name="Pproductos" value="Excelente"/>Muy de acuerdo
-          <input type="radio" name="Pproductos" value="Buena" />De acuerdo
-          <input type="radio" name="Pproductos" value="Neutra" />Neutro
-          <input type="radio" name="Pproductos" value="Mala" />En desacuerdo
-          <input type="radio" name="Pproductos" value="Terrible" />Muy en desacuerdo
-        </div>
-        <div id="encuesta">
-          <p>En la siguiente escala, como calificaria la atención del meser@</p><br>
-          <input type="radio" name="Amesero" value="Excelente"/>Excelente
-          <input type="radio" name="Amesero" value="Buena" />Buena
-          <input type="radio" name="Amesero" value="Neutra" />Neutra
-          <input type="radio" name="Amesero" value="Mala" />Mala
-          <input type="radio" name="Amesero" value="Terrible" />Terrible
-        </div>
-        <div id="encuesta">
-          <p>¿Cuál es la probabilidad de que regrese?</p><br>
-          <input type="radio" name="Probabilidad" value="Excelente"/>100%
-          <input type="radio" name="Probabilidad" value="Buena" />75%
-          <input type="radio" name="Probabilidad" value="Neutra" />50%
-          <input type="radio" name="Probabilidad" value="Mala" />25%
-          <input type="radio" name="Probabilidad" value="Terrible" />0%
-        </div>
-        <br />Escribanos al buzón de sugerencias: <br />
-        <textarea name="comenta" rows="6" cols="60" placeholder="Escribe aquí"> </textarea>
-
-        <br> </br>
-        <input type="submit" value="ENVIAR"> <input type="reset" value="BORRAR">
+      <h2>Cliente Nuevo</h2>
+      <form action="clienteNuevo.php" method="post">
+          <div id="encuesta">
+          <label for="">Nombre</label>
+          <input type="text" name="nombreC" id="nombreC">
+          <label for="">Fecha de Visita</label>
+          <input type="date" name="FechaV" id="FechaV">
+          <label for="Edad">Edad</label>
+          <input type="number" name="edad" id="edad" >
+          </div>
+          <div id="encuesta">
+            <p>En la siguiente escala, cómo calificaria su experiencia en local</p><br>
+            <input type="radio" name="ExpL" value="Excelente"/>Excelente
+            <input type="radio" name="ExpL" value="Buena" />Buena
+            <input type="radio" name="ExpL" value="Neutra" />Neutra
+            <input type="radio" name="ExpL" value="Mala" />Mala
+            <input type="radio" name="ExpL" value="Terrible" />Terrible
+          </div>
+          <div id="encuesta">
+            <p>Describa cuál fue su modalidad de visita</p><br>
+            <input type="radio" name="Modalidad" value="Comedor"/>Comer en el local
+            <input type="radio" name="Modalidad" value="Llevar" />Para llevar
+          </div>
+          <div id="encuesta">
+            <p>Qué tan satisfecho estubo con su pedido</p><br>
+            <input type="radio" name="Spedido" value="Mucho"/>Mucho
+            <input type="radio" name="Spedido" value="Bien" />Bien
+            <input type="radio" name="Spedido" value="Suficiente" />Suficiente
+            <input type="radio" name="Spedido" value="Poco" />Poco
+            <input type="radio" name="Spedido" value="Nada" />Nada
+           </div>
+          <div id="encuesta">
+            <p>En la siguiente escala, como calificaria el tiempo que espero sus alimentos</p><br>
+            <input type="radio" name="Calimentos" value="Excelente"/>Excelente
+            <input type="radio" name="Calimentos" value="Buena" />Bueno
+            <input type="radio" name="Calimentos" value="Neutra" />Neutro
+            <input type="radio" name="Calimentos" value="Mala" />Malo
+            <input type="radio" name="Calimentos" value="Terrible" />Terrible
+          </div>
+          <div id="encuesta">
+            <p>Esta de acuerdo con los precios de los productos que compró</p><br>
+            <input type="radio" name="Pproductos" value="Muy de acuerdo"/>Muy de acuerdo
+            <input type="radio" name="Pproductos" value="De acuerdo" />De acuerdo
+            <input type="radio" name="Pproductos" value="Neutro" />Neutro
+            <input type="radio" name="Pproductos" value="En desacuerdo" />En desacuerdo
+            <input type="radio" name="Pproductos" value="Muy en desacuerdo
+            " />Muy en desacuerdo
+          </div>
+          <div id="encuesta">
+            <p>En la siguiente escala, como calificaria la atención del meser@</p><br>
+            <input type="radio" name="Amesero" value="Excelente"/>Excelente
+            <input type="radio" name="Amesero" value="Buena" />Buena
+            <input type="radio" name="Amesero" value="Neutra" />Neutra
+            <input type="radio" name="Amesero" value="Mala" />Mala
+            <input type="radio" name="Amesero" value="Terrible" />Terrible
+          </div>
+          <div id="encuesta">
+            <p>¿Cuál es la probabilidad de que regrese?</p><br>
+            <input type="radio" name="Probabilidad" value="100"/>100%
+            <input type="radio" name="Probabilidad" value="75" />75%
+            <input type="radio" name="Probabilidad" value="50" />50%
+            <input type="radio" name="Probabilidad" value="25" />25%
+            <input type="radio" name="Probabilidad" value="0" />0%
+          </div>
+          <br />Escribanos al buzón de sugerencias: <br />
+          <textarea name="comenta" rows="6" cols="60" placeholder="Escribe aquí"> </textarea>
+  
+          <br> </br>
+          <input type="submit" name="cliente" value="Guardar">
+          <input type="reset" value="BORRAR">
       </form>
     </body>
 

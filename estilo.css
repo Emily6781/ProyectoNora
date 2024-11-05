@@ -235,3 +235,32 @@ textarea{
     padding: 5px;
     color: aliceblue;
 }
+
+nav a{
+    text-decoration: none; /*quita la direction: o sobbrayado*/
+    color:inherit;
+}
+nav li {
+    display: inline-block; /*hace que le texto se pon ga en horizontal*/
+    width: 180px;/*alto de un elemnto*/
+    height: 40px;
+    padding: 5px 0px; /*Es el espacio que queremos tener*/
+    background-color: rgb(7, 7, 6); /*color del fondo*/
+    color: chartreuse; /*color de la letra*/
+    border: 1px solid wheat;
+    text-align: center;
+    position: relative; /*es envase a una ubicacion*/
+}
+nav li:hover{/*hace que cuando seleccionesmos un elemento cambie de color (raton encima)*/
+    background-color: violet;
+    color: white;
+}
+nav li>ul{
+    display: none;/*Esto para hacelo invicible*/
+}
+nav li:hover>ul{
+    display: block;
+    position: absolute;
+    top: 50px; /*altura*/
+    left: 0px;
+}
