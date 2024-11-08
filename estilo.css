@@ -67,7 +67,7 @@ img {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 50%;
     border-radius: 5px;
 }
 
@@ -250,6 +250,7 @@ nav li {
     border: 1px solid wheat;
     text-align: center;
     position: relative; /*es envase a una ubicacion*/
+    border-radius: 10px;
 }
 nav li:hover{/*hace que cuando seleccionesmos un elemento cambie de color (raton encima)*/
     background-color: violet;
@@ -263,4 +264,18 @@ nav li:hover>ul{
     position: absolute;
     top: 50px; /*altura*/
     left: 0px;
+}
+button {
+    margin: 10px;
+    /* Espacio entre los botones */
+    padding: 10px 20px;
+    background-color: rgba(130, 84, 198, 0.1);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    /* Hace que los botones ocupen todo el espacio disponible horizontalmente */
+    max-width: 200px;
+    /* Establece el ancho máximo de los botones */
 }

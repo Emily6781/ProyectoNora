@@ -14,7 +14,7 @@
     $Reseña = "Experiencia en local: $expl, modalidad: $modal, satisfacción del pedido: $spedido, calidad de los alimentos: $calimentos, precios de los productos: $precioP, calificación mesero: $Amesero, probabilidad de que vuelva: $proba y comentario: $comenta . ";
     require('conexion.php');
 
-    $agregar = "INSERT INTO clientes(Nombre, FechaVisita, Edad, Comanetario) VALUES('$nombre', '$fecha', '$edad', '$Reseña')";
+    $agregar = "INSERT INTO clientes(Nombre, FechaVisita, Edad, Comentario) VALUES('$nombre', '$fecha', '$edad', '$Reseña')";
     $resultado = mysqli_query($conn, $agregar);
     mysqli_close($conn);
     if($resultado)
