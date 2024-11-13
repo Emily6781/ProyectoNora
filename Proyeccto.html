@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -7,17 +8,102 @@
     <link rel="stylesheet" href="estilo.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
+
   <body>
     <div class="container">
       <img src="Imagenes/Café ++ Cartel.jpg" alt="Café ++" id="imagenC" />
-      <h1>"Mucho más que los demás"</h1>
-      <h2>Lo más atractivo de nuestro menú</h2>
-      <ul>
-        <li>capuchino</li>
-        <li>americano</li>
-        <li>frappe</li>
-      </ul>
 
+      <br>
+
+      <audio controls autoplay loop>
+        <source src="Imagenes/P540.wav" type="audio/wav">
+        <source src="Imagenes/P540.wav" type="audio/wav">
+        Tu navegador no soporta la etiqueta de audio.
+      </audio>
+
+      <h1>"Mucho más que los demás"</h1><br>
+
+      <nav>
+        <ul>
+          <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
+          <li><a href="">Empleados</a></li>
+          <li><a href="">Productos</a></li>
+          <li><a href="">Ventas</a></li>
+        </ul>
+      </nav>
+
+      <div id="listDiv">
+        <h2>Lo más atractivo de nuestro menú</h2>
+        <div class="carousel-container">
+          <div class="carousel-slide">
+
+            <!-- Lista de Postres -->
+            <div class="list-item">
+              <h3>Postres</h3>
+              <ul>
+                <li>Brownie 40</li>
+                <li>Cheesecake 55</li>
+                <li>Croissant 35</li>
+                <li>Muffin de arándanos 60 </li>
+                <li>Pastel de zanahoria 55</li>
+              </ul>
+            </div>
+
+            <!-- Lista de Bebidas -->
+            <div class="list-item">
+              <h3>Bebidas</h3>
+              <ul>
+                <li>Americano 45</li>
+                <li>Capuchino 50</li>
+                <li>Té Chai 35</li>
+                <li>Frappe de vainilla 50 </li>
+                <li>Chocolate caliente 35</li>
+              </ul>
+            </div>
+
+            <!-- Lista de Desayunos -->
+            <div class="list-item">
+              <h3>desayunos</h3>
+              <ul>
+                <li>Pan tostado 45</li>
+                <li>Pan dulce 30</li>
+                <li>chilaquiles 60</li>
+                <li>waffles 70</li>
+                <li>panqueques 70</li>
+              </ul>
+            </div>
+
+            <!-- Lista de Aperitivos -->
+            <div class="list-item">
+              <h3>Aperitivos</h3>
+              <ul>
+                <li>palomitas de maiz 20</li>
+                <li>frutos secos (pasa, nuez de macadamia y almendra) 15</li>
+                <li>Pretzels 25</li>
+                <li>banderillas 45</li>
+                <li>Papitas 25</li>
+              </ul>
+            </div>
+
+            <!-- Lista de Comidas -->
+            <div class="list-item">
+              <h3>Comidas</h3>
+              <ul>
+                <li>Sandwich de pollo 50</li>
+                <li>panini de 3 quesos 45</li>
+                <li>Ensalada César 60</li>
+                <li>Bagel con salmón 75</li>
+                <li>lonche de pierna 50</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <img src="Imagenes/Café_+A2.png" alt="Café +A" id="imagenA" />
       <h2>Conozca a los integrantes de la familia Café ++</h2>
       <div id="tableDiv">
         <table>
@@ -25,21 +111,37 @@
             <th>Nombre</th>
             <th>Edad</th>
             <th>Puesto</th>
+            <th>Luce como...</th>
+          </tr>
+          <tr>
+            <td>David</td>
+            <td>36</td>
+            <td>Gerente genaral</td>
+            <td>NONE</td>
           </tr>
           <tr>
             <td>Juan</td>
             <td>25</td>
-            <td>Cajero</td>
+            <td>Mesero</td>
+            <td>NONE</td>
           </tr>
           <tr>
             <td>María</td>
             <td>30</td>
-            <td>Producción</td>
+            <td>Auxiliar de cocina</td>
+            <td>NONE</td>
           </tr>
           <tr>
             <td>Carlos</td>
             <td>28</td>
-            <td>Mesero</td>
+            <td>Auxiliar de cocina</td>
+            <td>NONE</td>
+          </tr>
+          <tr>
+            <td>Gustavo</td>
+            <td>55</td>
+            <td>Encargado de limpieza</td>
+            <td><img src="Imagenes/Gus.jpg" alt="Gustavo" id="credencial"/></td>
           </tr>
         </table>
       </div>
@@ -49,17 +151,19 @@
         <h2>Visítenos en nuestra sucursal</h2>
         <ul>
           <li>
-            Sucursal A
+            Café++
             <ul>
-              <li>Ubicación</li>
-              <li>Teléfono</li>
+              <li>Ubicación: Av. Universidad de Guadalajara 203, Ixtapa, Los Tamarindos, 48280 Puerto Vallarta, Jal.</li>
+              <li>Teléfono: 322-XXX-XX-XX</li>
             </ul>
           </li>
           <li>
-            Sucursal B
+          <br>
+          <br>
+            Sucursales en camino:
             <ul>
-              <li>Ubicación</li>
-              <li>Teléfono</li>
+              <li>Café Shyarp (Proximamente)</li>
+              <li>ANSI Café (Proximamente)</li>
             </ul>
           </li>
         </ul>
@@ -71,22 +175,121 @@
         ></iframe>
       </div>
 
+      <img src="Imagenes/Rick.png" alt="Rick" id="Monito">
+      <div id="gameDiv">
+        <h2>¿Interesado en lo que hacemos?</h2>
+        <ul>
+          <li>
+            <br>
+            Una empresa asociada con nosotros desarrolló una versión interactiva de nuestra cafeteria
+          </li>
+        </ul>
+        <ul>
+          <li>
+            <img src="Imagenes/Team Tocino.png" alt="Café ++" id="imagenC" />
+          </li>
+          <li>
+            Un videojuego accesible para todos donde se te estudiara como persona
+              <img src="Imagenes/Fase 1.png" alt="Café ++" id="imagenC" />
+          </li>
+          <li>
+            Y luego llegaras a tomar uno de los puestos existentes en nuestra cafeteria
+              <img src="Imagenes/Fase 22.png" alt="Café ++" id="imagenC" />
+              <br>
+              ¿Quien sabe? a lo mejor encuentras el puesto ideal para tí
+          </li>
+          <li>
+            <a href="Imagenes/bin-EPI.zip" download="archivo.pdf">Descargelo ahora mismo y comience</a>
+          </li>
+        </ul>
+      </div>
       <img src="Imagenes/Wendy.png" alt="Wendy" id="Monito">
 
-      <form action="mailtoie-mail" method="post" enctype="text/plain" id="experiencia">
-          <h2>Describanos su experiencia en el establecimiento:</h2>
-        <br/>
-        <input type="radio" name="Grado de Satsifacción" value="Excelente"/>Excelente
-        <input type="radio" name="Grado de Satsifacción" value="Buena" />Buena
-        <input type="radio" name="Grado de Satsifacción" value="Neutra" />Neutra
-        <input type="radio" name="Grado de Satsifacción" value="Mala" />Mala
-        <input type="radio" name="Grado de Satsifacción" value="Terrible" />Terrible
-        <br/>
-        <br />Escribanos al buzón de sugerencias <br />
-        <textarea name="Comentarios de usuario:" rows="6" cols="40" placeholder="Escribe aquí"> </textarea>
+      <h2>Cliente Nuevo</h2>
+      <form action="clienteNuevo.php" method="post">
+          <div id="encuesta">
+          <label for="">Nombre</label>
+          <input type="text" name="nombreC" id="nombreC">
+          <label for="">Fecha de Visita</label>
+          <input type="date" name="FechaV" id="FechaV">
+          <label for="Edad">Edad</label>
+          <input type="number" name="edad" id="edad" >
+          </div>
+
+          <div id="encuesta">
+            <p>En la siguiente escala, cómo calificaria su experiencia en local</p><br>
+            <input type="radio" name="ExpL" value="Excelente"/>Excelente
+            <input type="radio" name="ExpL" value="Buena" />Buena
+            <input type="radio" name="ExpL" value="Neutra" />Neutra
+            <input type="radio" name="ExpL" value="Mala" />Mala
+            <input type="radio" name="ExpL" value="Terrible" />Terrible
+          </div>
+
+          <div id="encuesta">
+            <p>Describa cuál fue su modalidad de visita</p><br>
+            <input type="radio" name="Modalidad" value="Comedor"/>Comer en el local
+            <input type="radio" name="Modalidad" value="Llevar" />Para llevar
+          </div>
+
+          <div id="encuesta">
+            <p>Qué tan satisfecho estubo con su pedido</p><br>
+            <input type="radio" name="Spedido" value="Mucho"/>Mucho
+            <input type="radio" name="Spedido" value="Bien" />Bien
+            <input type="radio" name="Spedido" value="Suficiente" />Suficiente
+            <input type="radio" name="Spedido" value="Poco" />Poco
+            <input type="radio" name="Spedido" value="Nada" />Nada
+           </div>
+
+          <div id="encuesta">
+            <p>En la siguiente escala, como calificaria el tiempo que espero sus alimentos</p><br>
+            <input type="radio" name="Calimentos" value="Excelente"/>Excelente
+            <input type="radio" name="Calimentos" value="Buena" />Bueno
+            <input type="radio" name="Calimentos" value="Neutra" />Neutro
+            <input type="radio" name="Calimentos" value="Mala" />Malo
+            <input type="radio" name="Calimentos" value="Terrible" />Terrible
+          </div>
+
+          <div id="encuesta">
+            <p>Esta de acuerdo con los precios de los productos que compró</p><br>
+            <input type="radio" name="Pproductos" value="Muy de acuerdo"/>Muy de acuerdo
+            <input type="radio" name="Pproductos" value="De acuerdo" />De acuerdo
+            <input type="radio" name="Pproductos" value="Neutro" />Neutro
+            <input type="radio" name="Pproductos" value="En desacuerdo" />En desacuerdo
+            <input type="radio" name="Pproductos" value="Muy en desacuerdo
+            " />Muy en desacuerdo
+          </div>
+
+          <div id="encuesta">
+            <p>En la siguiente escala, como calificaria la atención del meser@</p><br>
+            <input type="radio" name="Amesero" value="Excelente"/>Excelente
+            <input type="radio" name="Amesero" value="Buena" />Buena
+            <input type="radio" name="Amesero" value="Neutra" />Neutra
+            <input type="radio" name="Amesero" value="Mala" />Mala
+            <input type="radio" name="Amesero" value="Terrible" />Terrible
+          </div>
+
+          <div id="encuesta">
+            <p>¿Cuál es la probabilidad de que regrese?</p><br>
+            <input type="radio" name="Probabilidad" value="100"/>100%
+            <input type="radio" name="Probabilidad" value="75" />75%
+            <input type="radio" name="Probabilidad" value="50" />50%
+            <input type="radio" name="Probabilidad" value="25" />25%
+            <input type="radio" name="Probabilidad" value="0" />0%
+          </div>
+
+          <br />Escribanos al buzón de sugerencias: <br />
+          <textarea name="comenta" rows="6" cols="60" placeholder="Escribe aquí"> </textarea>
+
+          <br>
+          <input type="submit" name="cliente" value="Guardar">
+          <input type="reset" value="Borrar">
       </form>
+      <br>
     </body>
+
     <footer>
-      <p>Hecho por Team Tocino en colobaración con Café++. Puerto Vallarta, Jal. 04 de septiembre 2024.</p><br>
+      <p>Hecho por Café++ en colobaración con Team Tocino. Puerto Vallarta, Jal. 19 de Noviembre 2024.</p><br>
     </footer>
+
+  </div>
   </html>
