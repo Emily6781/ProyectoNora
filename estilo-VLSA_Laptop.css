@@ -1,0 +1,281 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #B26400;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 3em; /* Ajustado a em para mejor adaptabilidad */
+    font-style: italic;
+    margin: 10px;
+}
+
+h2 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+#imagenC {
+    width: 70%;
+    height: auto;
+    margin-bottom: 30px;
+}
+
+#imagenA {
+    width: 20%;
+    height: 20%;
+    margin-bottom: 30px;
+}
+
+#credencial {
+    width: 35%;
+    height: 50%;
+}
+
+#tableDiv {
+    background-color: rgb(240, 180, 67);
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid darkgoldenrod;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    border-radius: 5px;
+}
+
+tr:hover {
+    background-color: coral;
+    border-radius: 5px;
+}
+
+th, td {
+    border: 1px solid #fff; /* Definido el tipo de borde */
+    padding: 8px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+th {
+    background-color: #896129;
+}
+
+#mapDiv {
+    background-color: #571813;
+    padding: 30px;
+    border: 1px solid darkgoldenrod;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+}
+
+#gameDiv {
+    background-color: #CA8EAD;
+    padding: 30px;
+    border: 1px solid darkgoldenrod;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+}
+
+#listDiv {
+    background-color: #1E1A1A;
+    padding: 30px;
+    border: 1px solid darkgoldenrod;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 50%;
+}
+
+.list-item {
+    display: inline-block;
+    background-color: #f4e1d2;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    flex: 0 0 50px;
+}
+
+.list-item h3 {
+    color: #6F4E37;
+}
+
+.list-item ul li {
+    color: #6F4E37;
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+/* Animación para el carrusel */
+@keyframes carousel {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    50% { transform: translateX(-300%); }
+    75% { transform: translateX(-400%); }
+    100% { transform: translateX(0); }
+}
+
+.carousel-slide {
+    animation: carousel 25s infinite;
+}
+
+/* Ajustar ancho según elementos */
+.carousel-slide .list-item {
+    flex: 0 0 100%;
+}
+
+#gameDiv ul {
+    list-style-type: none;
+}
+
+#mapDiv iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+}
+
+#mapDiv ul {
+    list-style-type: none;
+}
+
+#experiencia {
+    margin: 15px auto;
+    padding: 5px;
+    width: 80%;
+    border: #fff solid 1px;
+    border-radius: 10px;
+}
+
+#Monito {
+    width: 100px;
+    height: auto;
+    margin: 5px;
+}
+
+#monito:hover{
+    width: 200px;
+}
+
+footer {
+    background-color: #1D76F2;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+textarea{
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    padding: 10px;
+    color: #896129;
+    margin: 10px;
+}
+#encuesta{
+    margin: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    border: #fff solid 2px;
+    padding: 10px;
+}
+#encuesta p{
+    font-size: 20px;
+    font-weight: bold;
+}
+ input{
+    background-color: transparent;
+    border: #fff solid 2px;
+    border-radius: 10px;
+    padding: 5px;
+    color: aliceblue;
+}
+
+nav a{
+    text-decoration: none; /*quita la direction: o sobbrayado*/
+    color:inherit;
+}
+nav li {
+    display: inline-block; /*hace que le texto se pon ga en horizontal*/
+    width: 180px;/*alto de un elemnto*/
+    height: 40px;
+    padding: 5px 0px; /*Es el espacio que queremos tener*/
+    background-color: rgb(7, 7, 6); /*color del fondo*/
+    color: chartreuse; /*color de la letra*/
+    border: 1px solid wheat;
+    text-align: center;
+    position: relative; /*es envase a una ubicacion*/
+    border-radius: 10px;
+}
+nav li:hover{/*hace que cuando seleccionesmos un elemento cambie de color (raton encima)*/
+    background-color: violet;
+    color: white;
+}
+nav li>ul{
+    display: none;/*Esto para hacelo invicible*/
+}
+nav li:hover>ul{
+    display: block;
+    position: absolute;
+    top: 50px; /*altura*/
+    left: 0px;
+}
+button {
+    margin: 10px;
+    /* Espacio entre los botones */
+    padding: 10px 20px;
+    background-color: rgba(130, 84, 198, 0.1);
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    position: relative;
+    /* Hace que los botones ocupen todo el espacio disponible horizontalmente */
+    max-width: 200px;
+    /* Establece el ancho máximo de los botones */
+}
