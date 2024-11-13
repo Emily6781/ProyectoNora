@@ -11,46 +11,90 @@ $productos = isset($_POST['searchInput']) ? buscarProductos($conn, $_POST['searc
 // Obtener todos los clientes
 $clientes = obtenerClientes($conn);
 ?>
+<body>
+    <div class="container">
+        <link rel="stylesheet" href="../css/Ventas.css" />
+        
+        <img src="../../Imagenes/Café ++ Cartel.jpg" alt="Café ++" id="imagenC" />
 
-<div class="form-container">
-    <form method="POST" action="">
-        <div class="search-bar">
-            <label for="searchInput">Buscar producto:</label>
-            <input type="text" id="searchInput" name="searchInput" placeholder="Buscar..." class="search-box">
-            <link rel="stylesheet" href="../../estilo.css" />
-            <button type="submit" class="button-search">Buscar</button>
+        <br>
+
+        <audio controls autoplay loop>
+            <source src="Imagenes/P540.wav" type="audio/wav">
+            <source src="Imagenes/P540.wav" type="audio/wav">
+            Tu navegador no soporta la etiqueta de audio.
+        </audio>
+
+        <h1>"Mucho más que los demás"</h1><br>
+
+        <nav>
+            <ul>
+            <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
+            <li><a href="">Empleados</a></li>
+            <li><a href="">Productos</a></li>
+            <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
+            </ul>
+        </nav>  
+    </div>
+    <div class="general-container">
+        <div class="form-container">
+            <form method="POST" action="">
+                <div class="search-bar">
+                    <label for="searchInput">Buscar producto:</label>
+                    <input type="text" id="searchInput" name="searchInput" placeholder="Buscar..." class="search-box">
+                    <button type="submit" class="button-search">Buscar</button>
+                </div>
+
+                <div class="products-table">
+                    <h2>Productos en venta</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($productos as $producto): ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($producto['Nombre']); ?></td>
+                                <td>$<?php echo htmlspecialchars(number_format($producto['Precio'], 2)); ?></td>
+                                <td>
+                                    <input type="number" name="cantidad_<?php echo $producto['ID']; ?>" value="1" min="1" max="10" required>
+                                </td>
+                                <td>
+                                    <button class="button-add" type="submit" name="producto" 
+                                            value="<?php echo $producto['ID']; ?>">Agregar al Carrito</button>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
         </div>
 
-        <div class="products-table">
-            <h2>Productos en venta</h2>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>Producto</th>
-                        <th>Stock</th>
-                        <th>Precio</th>
-                        <th>Cantidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($productos as $producto): ?>
-                    <tr>
-                        <td><?php echo htmlspecialchars($producto['Nombre']); ?></td>
-                        <td><?php echo htmlspecialchars($producto['Stock']); ?></td>
-                        <td><?php echo htmlspecialchars($producto['Precio']); ?></td>
-                        <td>
-                            <input type="number" name="cantidad_<?php echo $producto['ID']; ?>" value="1" min="1"
-                                   max="<?php echo htmlspecialchars($producto['Stock']); ?>" required>
-                        </td>
-                        <td>
-                            <button class="button-add" type="submit" name="producto" 
-                                    value="<?php echo $producto['ID']; ?>">Agregar al Carrito</button>
-                        </td>
-                    </tr>
+        <!-- Carrito de compra -->
+        <div class="shopping-cart">
+            <h2>Carrito de compra</h2>
+            <ul>
+                <?php if (!empty($carrito)): ?>
+                    <?php foreach ($carrito as $producto_id => $item): ?>
+                        <li>
+                            <?php echo htmlspecialchars($item['cantidad']); ?>x 
+                            <?php echo htmlspecialchars($item['nombre']); ?> - 
+                            $<?php echo htmlspecialchars(number_format($item['precio'] * $item['cantidad'], 2)); ?>
+                        </li>
                     <?php endforeach; ?>
-                </tbody>
-            </table>
+                    <li>Subtotal: $<?php echo number_format($subtotal, 2); ?></li>
+                    <li>IVA (16%): $<?php echo number_format($iva, 2); ?></li>
+                    <li><strong>Total a Pagar: $<?php echo number_format($total, 2); ?></strong></li>
+                <?php else: ?>
+                    <li>El carrito está vacío.</li>
+                <?php endif; ?>
+            </ul>
         </div>
-    </form>
-
-</div>
+    </div>  
+      
+</body>
