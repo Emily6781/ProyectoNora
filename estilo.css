@@ -39,9 +39,10 @@ img {
 }
 
 #imagenC {
-    width: 70%;
+    width: 50%;
     height: auto;
-    margin-bottom: 30px;
+    margin-bottom: 30px
+    object-fit;
 }
 
 #imagenA {
@@ -236,6 +237,26 @@ textarea{
     color: aliceblue;
 }
 
+.navbar {
+    background-color: #1D76F2;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    position: fixed;          /* Fijar la barra en la parte superior */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;            /* Coloca la barra por encima de otros elementos */
+}
+
+.navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+
 nav a{
     text-decoration: none; /*quita la direction: o sobbrayado*/
     color:inherit;
@@ -244,7 +265,7 @@ nav li {
     display: inline-block; /*hace que le texto se pon ga en horizontal*/
     width: 180px;/*alto de un elemnto*/
     height: 40px;
-    padding: 5px 0px; /*Es el espacio que queremos tener*/
+    padding: 10px 0px; /*Es el espacio que queremos tener*/
     background-color: rgb(7, 7, 6); /*color del fondo*/
     color: chartreuse; /*color de la letra*/
     border: 1px solid wheat;
@@ -268,7 +289,7 @@ nav li:hover>ul{
 button {
     margin: 10px;
     /* Espacio entre los botones */
-    padding: 10px 20px;
+    padding: 20px 20px;
     background-color: rgba(130, 84, 198, 0.1);
     color: #FFFFFF;
     text-decoration: none;
