@@ -207,6 +207,7 @@ th {
 footer {
     background-color: #1D76F2;
     width: 100%;
+    z-index: 1000;
     text-align: center;
     padding: 10px;
     margin: 0;
@@ -244,7 +245,7 @@ textarea{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
+    padding: 10px 10px;
     position: fixed;          /* Fijar la barra en la parte superior */
     top: 0;
     left: 0;
@@ -267,8 +268,8 @@ nav li {
     width: 180px;/*alto de un elemnto*/
     height: 40px;
     padding: 10px 0px; /*Es el espacio que queremos tener*/
-    background-color: rgb(7, 7, 6); /*color del fondo*/
-    color: chartreuse; /*color de la letra*/
+    background-color: #fc8709; /*color del fondo*/
+    color: black; /*color de la letra*/
     border: 1px solid wheat;
     text-align: center;
     position: relative; /*es envase a una ubicacion*/
