@@ -70,6 +70,7 @@ table {
     border-collapse: collapse;
     width: 50%;
     border-radius: 5px;
+    align-content: center;
 }
 
 tr:hover {
