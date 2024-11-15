@@ -8,29 +8,43 @@
     <link rel="stylesheet" href="estilo.css" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
   </head>
-  
+
   <body>
     <div class="container">
-      <img src="Imagenes/Café ++ Cartel.jpg" alt="Café ++" id="imagenC" />
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <!-- Inicio (Landing page) -->
+                <a class="navbar-brand" href="#">C++</a>
+
+                  <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
+                  <li><a href="">Empleados</a></li>
+                  <li><a href="">Productos</a></li>
+                  <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <img src="Recursos/Visuales/Café++.png" alt="Café ++" id="imagenC" />
 
       <br>
 
       <audio controls autoplay loop>
-        <source src="Imagenes/P540.wav" type="audio/wav">
-        <source src="Imagenes/P540.wav" type="audio/wav">
+        <source src="Recursos/Auditivos/P540.wav" type="audio/wav">
+        <source src="Recursos/Auditivos/P540.wav" type="audio/wav">
         Tu navegador no soporta la etiqueta de audio.
       </audio>
 
       <h1>"Mucho más que los demás"</h1><br>
 
-      <nav>
-        <ul>
-          <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
-          <li><a href="">Empleados</a></li>
-          <li><a href="">Productos</a></li>
-          <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
-        </ul>
-      </nav>
+
 
       <div id="listDiv">
         <h2>Lo más atractivo de nuestro menú</h2>
@@ -103,10 +117,11 @@
       <br>
       <br>
 
-      <img src="Imagenes/Café_+A2.png" alt="Café +A" id="imagenA" />
-      <h2>Conozca a los integrantes de la familia Café ++</h2>
+      <img src="Recursos/Visuales/Café_+A2.png" alt="Café +A" id="imagenA" />
       <div id="tableDiv">
         <table>
+          <h2>Conozca a los integrantes de la familia Café ++</h2>
+          <br>
           <tr>
             <th>Nombre</th>
             <th>Edad</th>
@@ -141,12 +156,12 @@
             <td>Gustavo</td>
             <td>55</td>
             <td>Encargado de limpieza</td>
-            <td><img src="Imagenes/Gus.jpg" alt="Gustavo" id="credencial"/></td>
+            <td><img src="Recursos/Visuales/Gus.jpg" alt="Gustavo" id="credencial"/></td>
           </tr>
         </table>
       </div>
 
-      <img src="Imagenes/Mack.png" alt="Mack" id="Monito">
+      <img src="Recursos/Visuales/Mack.png" alt="Mack" id="Monito">
       <div id="mapDiv">
         <h2>Visítenos en nuestra sucursal</h2>
         <ul>
@@ -175,7 +190,7 @@
         ></iframe>
       </div>
 
-      <img src="Imagenes/Rick.png" alt="Rick" id="Monito">
+      <img src="Recursos/Visuales/Rick.png" alt="Rick" id="Monito">
       <div id="gameDiv">
         <h2>¿Interesado en lo que hacemos?</h2>
         <ul>
@@ -186,24 +201,24 @@
         </ul>
         <ul>
           <li>
-            <img src="Imagenes/Team Tocino.png" alt="Café ++" id="imagenC" />
+            <img src="Recursos/Visuales/Team Tocino.png" alt="Café ++" id="imagenC" />
           </li>
           <li>
             Un videojuego accesible para todos donde se te estudiara como persona
-              <img src="Imagenes/Fase 1.png" alt="Café ++" id="imagenC" />
+              <img src="Recursos/Visuales/Fase 1.png" alt="Café ++" id="imagenC" />
           </li>
           <li>
             Y luego llegaras a tomar uno de los puestos existentes en nuestra cafeteria
-              <img src="Imagenes/Fase 22.png" alt="Café ++" id="imagenC" />
+              <img src="Recursos/Visuales/Fase 22.png" alt="Café ++" id="imagenC" />
               <br>
               ¿Quien sabe? a lo mejor encuentras el puesto ideal para tí
           </li>
           <li>
-            <a href="Imagenes/bin-EPI.zip" download="archivo.pdf">Descargelo ahora mismo y comience</a>
+            <a href="Recursos/Ejecutables/bin-EPI.zip" download="archivo.pdf">Descargelo ahora mismo y comience</a>
           </li>
         </ul>
       </div>
-      <img src="Imagenes/Wendy.png" alt="Wendy" id="Monito">
+      <img src="Recursos/Visuales/Wendy.png" alt="Wendy" id="Monito">
 
       <h2>Cliente Nuevo</h2>
       <form action="clienteNuevo.php" method="post">
