@@ -1,140 +1,222 @@
-/* -----------------------------------------------
-/* Cotenedor gris que cubre el plano 
-/* ---------------------------------------------- */
-
-.form-container {
-    display: flex;    
-    justify-content: space-between; 
-    align-items: flex-start;
-    grid-area: 1 / 2 / 2 / 3;
-    width: 95%;
-    margin: 0 auto;
-    margin-top: 50px;
-    background-color: #ffffff;
-    padding: 20px 20px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    flex: 1; 
-    margin-right: 20px;
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-/* --------------------------------------------------- 
-/* Sección del carrito de compras
-/* -------------------------------------------------- */
-
-.shopping-car {
-    max-width: 700px;
-    margin: 0 auto;
-    margin-top: 50px;
-    background-color: #ffffff;
-    padding: 0px 20px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    flex: 1;
+body {
+    background-color: #B26400;
+    color: white;
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    grid-area: 1 / 3 / 2 / 4;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+}
+
+header {
+    width: 100%;
+    text-align: center;
 }
 
 h1 {
-    color: black;
-    font-weight: 600px;
-    font-size: 35px;
-    text-align: center;
-    margin-top: 0px;
-    margin-bottom: 10px; 
-}
-
-label {
-    font-weight: 500px;
-    font-size: 15px;
-}
-
-input, select {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 200px;
-    font-size: 15px;
+    font-weight: bold;
+    font-size: 3em; /* Ajustado a em para mejor adaptabilidad */
+    font-style: italic;
     margin: 10px;
 }
 
-.button-add {
-    padding: 12px;
-    margin-top: 10px;
-    background-color: #4A90E2;
+h2 {
+    font-weight: bold;
+    font-style: italic;
+}
+
+img {
+    max-width: 100%;
+    height: 50px;
+}
+
+#imagenC {
+    width: 50%;
+    height: 40px;
+    margin-bottom: 30px;
+}
+
+#imagenA {
+    width: 20%;
+    height: 20%;
+    margin-bottom: 30px;
+}
+
+
+
+footer {
+    background-color: #1D76F2;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+textarea{
+    border-radius: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    padding: 10px;
+    color: #896129;
+    margin: 10px;
+}
+ input{
+    background-color: transparent;
+    border: #fff solid 2px;
+    border-radius: 10px;
+    padding: 5px;
+    color: aliceblue;
+}
+
+nav a{
+    text-decoration: none; /*quita la direction: o sobbrayado*/
+    color:inherit;
+}
+nav li {
+    display: inline-block; /*hace que le texto se pon ga en horizontal*/
+    width: 180px;/*alto de un elemnto*/
+    height: 40px;
+    padding: 5px 0px; /*Es el espacio que queremos tener*/
+    background-color: rgb(7, 7, 6); /*color del fondo*/
+    color: chartreuse; /*color de la letra*/
+    border: 1px solid wheat;
+    text-align: center;
+    position: relative; /*es envase a una ubicacion*/
+    border-radius: 10px;
+}
+nav li:hover{/*hace que cuando seleccionesmos un elemento cambie de color (raton encima)*/
+    background-color: violet;
     color: white;
-    border: none;
+}
+nav li>ul{
+    display: none;/*Esto para hacelo invicible*/
+}
+nav li:hover>ul{
+    display: block;
+    position: absolute;
+    top: 50px; /*altura*/
+    left: 0px;
+}
+button {
+    margin: 10px;
+    /* Espacio entre los botones */
+    padding: 10px 20px;
+    background-color: rgba(130, 84, 198, 0.1);
+    color: #FFFFFF;
+    text-decoration: none;
     border-radius: 5px;
     cursor: pointer;
-    width: 150px;
-    height: 30px;
-    font-size: 16px;
-    text-align: center; 
-    display: flex; 
-    align-items: center;
-    justify-content: center;
+    position: relative;
+    /* Hace que los botones ocupen todo el espacio disponible horizontalmente */
+    max-width: 200px;
+    /* Establece el ancho máximo de los botones */
 }
 
-/* Botón de Eliminar */
-.button-remove {
-    background-color: #f54040;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 4px 20px;
-    margin-top: 5px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: background-color 0.3s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px; /* Espacio para el ícono */
-}
 
-.button-remove:hover {
-    background-color: #9f2b2b;
+/* Zona de contenedores de venta */
+
+body {
+    font-family: Arial, sans-serif;
 }
 
 .general-container {
-    width: 98%;
-    margin: 10px 10px;
-    background-color: #f4f4f4;
+    display: flex;
+    gap: 20px;
     padding: 20px;
-    display: grid;
-    grid-template-columns: .20fr 1fr .33fr;
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
+    width: 80%;
+    max-width: 1200px;
 }
 
-.button-sale {
-    padding: 12px;
+.form-container {
+    flex: 3; /* La tabla ocupará el 75% del contenedor */
+}
+
+.shopping-cart {
+    flex: 1; /* El carrito ocupará el 25% del contenedor */
+    border: 1px solid #ddd;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.products-table {
+    overflow-x: auto; /* Para asegurar que la tabla no se desborde */
+}
+
+.shopping-cart h2, 
+.shopping-cart ul li {
+    color: #333; /* Asegura que los títulos y los elementos de la lista tengan el mismo color */
+}
+
+.shopping-cart ul {
+    list-style-type: none;
+    padding: 0;
+}
+.shopping-cart button{
+    color: #000;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 10px;
-    background-color: #4ae257;
+}
+
+.table th, .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.button-add {
+    padding: 5px 10px;
+    background-color: #4CAF50;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
-    width: 150px;
-    height: 30px;
-    font-size: 16px;
-    text-align: center; 
-    display: flex; 
+}
+
+.button-add:hover {
+    background-color: #45a049;
+}
+
+.search-bar {
+    display: flex;
+    gap: 10px;
     align-items: center;
-    justify-content: center;
     margin-bottom: 10px;
 }
 
-.cantidad-container {
-    display: flex; /* Habilita el diseño flexible */
-    align-items: center; /* Centra verticalmente los elementos */
-    margin-top: 10px; /* Espacio superior */
+.search-box {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    width: 100%;
 }
 
-.cantidad-container input {
-    margin-right: 10px; /* Espacio entre el input y el botón */
-    width: auto; /* Permite que el input se ajuste según su contenido */
-    flex: 1; /* Permite que el input tome el espacio disponible */
+.button-search {
+    padding: 8px 12px;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-search:hover {
+    background-color: #0056b3;
 }

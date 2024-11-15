@@ -11,33 +11,39 @@ $productos = isset($_POST['searchInput']) ? buscarProductos($conn, $_POST['searc
 // Obtener todos los clientes
 $clientes = obtenerClientes($conn);
 ?>
+
+<header>
+    
+    <link rel="stylesheet" href="../css/Ventas.css" />
+    
+    <img src="../../Imagenes/Café ++ Cartel.jpg" alt="Café ++" id="imagenC" />
+
+    <br>
+
+    <audio controls autoplay loop>
+        <source src="../../Imagenes/P540.wav" type="audio/wav">
+        <source src="../../Imagenes/P540.wav" type="audio/wav">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+
+    <h1>"Mucho más que los demás"</h1><br>
+
+    <nav>
+        <ul>
+        <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
+        <li><a href="">Empleados</a></li>
+        <li><a href="">Productos</a></li>
+        <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
+        </ul>
+    </nav>  
+
+
+</header>
 <body>
-    <div class="container">
-        <link rel="stylesheet" href="../css/Ventas.css" />
-        
-        <img src="../../Imagenes/Café ++ Cartel.jpg" alt="Café ++" id="imagenC" />
 
-        <br>
-
-        <audio controls autoplay loop>
-            <source src="Imagenes/P540.wav" type="audio/wav">
-            <source src="Imagenes/P540.wav" type="audio/wav">
-            Tu navegador no soporta la etiqueta de audio.
-        </audio>
-
-        <h1>"Mucho más que los demás"</h1><br>
-
-        <nav>
-            <ul>
-            <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
-            <li><a href="">Empleados</a></li>
-            <li><a href="">Productos</a></li>
-            <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
-            </ul>
-        </nav>  
-    </div>
     <div class="general-container">
         <div class="form-container">
+
             <form method="POST" action="">
                 <div class="search-bar">
                     <label for="searchInput">Buscar producto:</label>
@@ -78,22 +84,28 @@ $clientes = obtenerClientes($conn);
         <!-- Carrito de compra -->
         <div class="shopping-cart">
             <h2>Carrito de compra</h2>
-            <ul>
-                <?php if (!empty($carrito)): ?>
-                    <?php foreach ($carrito as $producto_id => $item): ?>
+            <form method="POST" action="">
+                <ul>
+                    <?php if (!empty($carrito)): ?>
+                        <?php foreach ($carrito as $producto_id => $item): ?>
+                            <li>
+                                <?php echo htmlspecialchars($item['cantidad']); ?>x 
+                                <?php echo htmlspecialchars($item['nombre']); ?> - 
+                                $<?php echo htmlspecialchars(number_format($item['precio'] * $item['cantidad'], 2)); ?>
+                                <button type="submit" name="eliminar_producto" value="<?php echo $producto_id; ?>" class="button-remove">Eliminar</button>
+                            </li>
+                        <?php endforeach; ?>
+                        <li>Subtotal: $<?php echo number_format($subtotal, 2); ?></li>
+                        <li>IVA (16%): $<?php echo number_format($iva, 2); ?></li>
+                        <li><strong>Total a Pagar: $<?php echo number_format($total, 2); ?></strong></li>
                         <li>
-                            <?php echo htmlspecialchars($item['cantidad']); ?>x 
-                            <?php echo htmlspecialchars($item['nombre']); ?> - 
-                            $<?php echo htmlspecialchars(number_format($item['precio'] * $item['cantidad'], 2)); ?>
+                            <button type="submit" name="proceder_pago" class="button-pay">Proceder con el pago</button>
                         </li>
-                    <?php endforeach; ?>
-                    <li>Subtotal: $<?php echo number_format($subtotal, 2); ?></li>
-                    <li>IVA (16%): $<?php echo number_format($iva, 2); ?></li>
-                    <li><strong>Total a Pagar: $<?php echo number_format($total, 2); ?></strong></li>
-                <?php else: ?>
-                    <li>El carrito está vacío.</li>
-                <?php endif; ?>
-            </ul>
+                    <?php else: ?>
+                        <li>El carrito está vacío.</li>
+                    <?php endif; ?>
+                </ul>
+            </form>
         </div>
     </div>  
       
