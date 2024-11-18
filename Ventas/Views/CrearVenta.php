@@ -44,12 +44,20 @@ $clientes = obtenerClientes($conn);
     <div class="general-container">
         <div class="form-container">
 
+            <nav >
+                <ul>
+                    <li class="button-show"><a href="mostrarVenta.php">Mostrar ventas</a></li>
+                </ul>
+            </nav> 
+
             <form method="POST" action="">
                 <div class="search-bar">
                     <label for="searchInput">Buscar producto:</label>
                     <input type="text" id="searchInput" name="searchInput" placeholder="Buscar..." class="search-box">
                     <button type="submit" class="button-search">Buscar</button>
                 </div>
+
+                 
 
                 <div class="products-table">
                     <h2>Productos en venta</h2>
