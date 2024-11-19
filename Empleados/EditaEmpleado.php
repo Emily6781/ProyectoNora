@@ -1,12 +1,14 @@
 <?php
     $id = $_POST['id'];
     $nombre = $_POST['nombre'];
-    $fechaV = $_POST['fecha'];
-    $edad = $_POST['edad'];
-    $comenta = $_POST['comenta'];
+    $apellidop = $_POST['apellidop'];
+    $apellidom = $_POST['apellidom'];
+    $fechanac = $_POST['fechanac'];
+    $puestos = $_POST['puestos'];
+    $horario = $_POST['horario'];
     require('../conexion.php');
 
-    $modificar = "UPDATE empleados SET Nombre='$nombre', FechaVisita='$fechaV', Edad='$edad', Comentario ='$comenta' WHERE ID = '$id'";
+    $modificar = "UPDATE empleados SET Nombre='$nombre', Apellido Paterno='$apellidop', Apellido Materno='$apellidom', Fecha de nacimiento ='$fechanac' Puesto de trabajo='$puestos', Turno de trabajo ='$horario' WHERE ID = '$id'";
     $resultado = mysqli_query($conn, $modificar);
     mysqli_close($conn);
     if($resultado)

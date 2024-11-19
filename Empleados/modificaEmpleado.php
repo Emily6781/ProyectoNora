@@ -43,21 +43,11 @@
       <br>
       <br>
 
-      <img src=".../Recursos/Visuales/Café++.png" alt="Café ++" id="imagenC" />
-
-      <br>
-
-      <audio controls autoplay loop>
-        <source src="Recursos/Auditivos/P540.wav" type="audio/wav">
-        <source src="Recursos/Auditivos/P540.wav" type="audio/wav">
-        Tu navegador no soporta la etiqueta de audio.
-      </audio>
-
       <h1>"Mucho más que los demás"</h1><br>
 
 
   <div id="encuesta">
-  <form action='resultados.php' method='POST'>
+  <form action='EditaEmpleado.php' method='POST'>
 
   <?php
       while($rows = $datos->fetch_assoc()){
@@ -65,13 +55,16 @@
               "<input type='hidden' name='id' value=".$rows['ID'].">".
               "<label for='nombre'>Nombre Empleado:</label>".
               "<input type='text' name='nombre' value=".$rows['Nombre'].">".
-              "<label for='apellidop'>Apellido Paterno:</label>".
-              "<input type='text' name='apellidop' value=".$rows['Apellido Paterno'].">".
-              "<label for='apellidom'>Apellido Materno:</label>".
-              "<input type='text' name='apellidom' value=".$rows['Apellido Materno'].">".
-              "<label for='fech'>Fecha de Nacimiento:</label>".
-              "<input type='date' name='FechaNac' value=".$rows['Fecha de nacimiento'].">".
-              "<label for='edad'>Edad:</label>".
+              "<label for='ApellidoP'>Apellido Paterno:</label>".
+              "<input type='text' name='ApellidoP' value=".$rows['ApellidoP'].">".
+              "<label for='ApellidoM'>Apellido Materno:</label>".
+              "<input type='text' name='ApellidoM' value=".$rows['ApellidoM'].">".
+              "<label for='FechaNac'>Fecha de Nacimiento:</label>".
+              "<input type='date' name='FechaNac' value=".$rows['FechaNac'].">".
+              "<label for='ApellidoM'>Apellido Materno:</label>".
+              "<SELECT name='Puestos_ID' value=".$rows['Puestos_ID'].">".
+              "<label for='Puestos_ID'>Puesto laboral:</label>".
+              "<input type='date' name='FechaNac' value=".$rows['FechaNac'].">".
               "<input type='submit' value='Modificar datos' name'ok'>".
               "</form>";
       }

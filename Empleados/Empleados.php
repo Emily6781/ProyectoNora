@@ -27,10 +27,10 @@
                       <!-- Inicio (Landing page) -->
                         <a class="navbar-brand" href="#" onclick="window.history.back();">C++</a>
 
-                        <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
-                        <li><a href="./Empleados/Empleados.php">Empleados</a></li>
+                        <li><a href="../../Clientes/mostrarClientes.php">Clientes</a></li>
+                        <li><a href="../../Empleados/Empleados.php">Empleados</a></li>
                         <li><a href="">Productos</a></li>
-                        <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
+                        <li><a href="../../Ventas/Views/CrearVenta.php">Ventas</a></li>
                   </ul>
 
               </div>
@@ -42,16 +42,6 @@
       <br>
       <br>
 
-      <img src=".../Recursos/Visuales/Café++.png" alt="Café ++" id="imagenC" />
-
-      <br>
-
-      <audio controls autoplay loop>
-        <source src="Recursos/Auditivos/P540.wav" type="audio/wav">
-        <source src="Recursos/Auditivos/P540.wav" type="audio/wav">
-        Tu navegador no soporta la etiqueta de audio.
-      </audio>
-
       <h1>"Mucho más que los demás"</h1><br>
 
 
@@ -60,9 +50,11 @@
               <tr>
                   <th>ID</th>
                   <th>Nombre</th>
-                  <th>Fecha de visita</th>
-                  <th>Edad</th>
-                  <th>Comentario</th>
+                  <th>ApellidoP</th>
+                  <th>Apellidom</th>
+                  <th>FechaNac</th>
+                  <th>Puesto_ID</th>
+                  <th>Horario_ID</th>
                   <th colspan='2'>Acciones</th>
               </tr>
           </thead>
@@ -72,16 +64,24 @@
                       echo "<tr>".
                            "<td>".$rows['ID']."</td>".
                            "<td>".$rows['Nombre']."</td>".
-                           "<td>".$rows['FechaVisita']."</td>".
-                           "<td>".$rows['Edad']."</td>".
-                           "<td>".$rows['Comentario']."</td>".
-                           "<td><a href='modificaCliente.php?id=$rows[ID]'>Editar</a></td>".
-                           "<td><a href='eliminaCliente.php?id=$rows[ID]'>Eliminar</a></td>".
+                           "<td>".$rows['ApellidoP']."</td>".
+                           "<td>".$rows['ApellidoM']."</td>".
+                           "<td>".$rows['FechaNac']."</td>".
+                           "<td>".$rows['Puestos_ID']."</td>".
+                           "<td>".$rows['Horario_ID']."</td>".
+                           "<td><a href='modificaEmpleado.php?id=$rows[ID]'>Modificar</a></td>".
+                           "<td><a href='EliminaEmpleado.php?id=$rows[ID]'>Eliminar</a></td>".
                            "</tr>";
                   }
 
                mysqli_close($conn);
               ?>
+
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
 
               <footer>
                 <p>Hecho por Café++ en colobaración con Team Tocino. Puerto Vallarta, Jal. 19 de Noviembre 2024.</p><br>
