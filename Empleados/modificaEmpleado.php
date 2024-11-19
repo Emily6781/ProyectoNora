@@ -1,11 +1,12 @@
 <?php
-  require('../conexion.php');
-  $sql = "SELECT * FROM empleados";
-  $datos = mysqli_query($conn, $sql);
-  if(!$datos)
-  {
-    header("location: Proyeccto.html");
-  }
+    require('../conexion.php');
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM empleados WHERE ID = '$id'";
+    $datos = mysqli_query($conn, $sql);
+    if(!$datos)
+    {
+        header("location: ../Proyeccto.html");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -55,36 +56,34 @@
       <h1>"Mucho más que los demás"</h1><br>
 
 
-      <table>
-          <thead>
-              <tr>
-                  <th>ID</th>
-                  <th>Nombre</th>
-                  <th>Fecha de visita</th>
-                  <th>Edad</th>
-                  <th>Comentario</th>
-                  <th colspan='2'>Acciones</th>
-              </tr>
-          </thead>
+  <div id="encuesta">
+  <form action='resultados.php' method='POST'>
 
-          <?php
-                  while($rows = $datos->fetch_assoc()){
-                      echo "<tr>".
-                           "<td>".$rows['ID']."</td>".
-                           "<td>".$rows['Nombre']."</td>".
-                           "<td>".$rows['FechaVisita']."</td>".
-                           "<td>".$rows['Edad']."</td>".
-                           "<td>".$rows['Comentario']."</td>".
-                           "<td><a href='modificaCliente.php?id=$rows[ID]'>Editar</a></td>".
-                           "<td><a href='eliminaCliente.php?id=$rows[ID]'>Eliminar</a></td>".
-                           "</tr>";
-                  }
+  <?php
+      while($rows = $datos->fetch_assoc()){
+          echo
+              "<input type='hidden' name='id' value=".$rows['ID'].">".
+              "<label for='nombre'>Nombre Empleado:</label>".
+              "<input type='text' name='nombre' value=".$rows['Nombre'].">".
+              "<label for='apellidop'>Apellido Paterno:</label>".
+              "<input type='text' name='apellidop' value=".$rows['Apellido Paterno'].">".
+              "<label for='apellidom'>Apellido Materno:</label>".
+              "<input type='text' name='apellidom' value=".$rows['Apellido Materno'].">".
+              "<label for='fech'>Fecha de Nacimiento:</label>".
+              "<input type='date' name='FechaNac' value=".$rows['Fecha de nacimiento'].">".
+              "<label for='edad'>Edad:</label>".
+              "<input type='submit' value='Modificar datos' name'ok'>".
+              "</form>";
+      }
+              mysqli_close($conn);
+  ?>
+  </div>
 
-               mysqli_close($conn);
-              ?>
-
-              <footer>
-                <p>Hecho por Café++ en colobaración con Team Tocino. Puerto Vallarta, Jal. 19 de Noviembre 2024.</p><br>
-              </footer>
+</form>
 </body>
+
+<footer>
+  <p>Hecho por Café++ en colobaración con Team Tocino. Puerto Vallarta, Jal. 19 de Noviembre 2024.</p><br>
+</footer>
+
 </html>

@@ -16,30 +16,31 @@
     <title>Editar Cliente</title>
     <link rel="stylesheet" href="../estilo.css">
 </head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                    <!-- Inicio (Landing page) -->
-                    <a class="navbar-brand" href="../Proyeccto.html" >C++</a>
 
-                    <li><a href="./mostrarClientes.php">Clientes</a></li>
-                    <li><a href="">Empleados</a></li>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                  <!-- Inicio (Landing page) -->
+                    <a class="navbar-brand" href="#" onclick="window.history.back();">C++</a>
+
+                    <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
+                    <li><a href="./Empleados/Empleados.php">Empleados</a></li>
                     <li><a href="">Productos</a></li>
                     <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
-                    
-                </ul>
-                
-            </div>
-        </div>
-    </nav>
+              </ul>
+
+          </div>
+      </div>
+  </nav>
+
     <div id="encuesta">
     <form action='editaCliente.php' method='POST'>
-        
+
     <?php
         while($rows = $datos->fetch_assoc()){
-            echo 
+            echo
                 "<input type='hidden' name='id' value=".$rows['ID'].">".
                 "<label for='nombre'>Nombre Cliente:</label>".
                 "<input type='text' name='nombre' value=".$rows['Nombre'].">".

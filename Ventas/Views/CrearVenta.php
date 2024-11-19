@@ -8,10 +8,18 @@ require('../../conexion.php');
 // Obtener productos o buscar productos si se envió el formulario
 $productos = isset($_POST['searchInput']) ? buscarProductos($conn, $_POST['searchInput']) : obtenerProductos($conn);
 
+
+
 // Obtener todos los clientes
 $clientes = obtenerClientes($conn);
 ?>
 
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Crear Ventas</title>
+    </head>
 <header>
     
     <link rel="stylesheet" href="../css/Ventas.css" />

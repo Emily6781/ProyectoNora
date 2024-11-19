@@ -66,6 +66,16 @@ img {
     border-radius: 10px;
 }
 
+#tableDiv2 {
+    background-color: rgb(240, 180, 67);
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid darkgoldenrod;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
 table {
     border-collapse: collapse;
     width: 50%;
