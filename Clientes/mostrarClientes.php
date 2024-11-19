@@ -26,9 +26,9 @@
                   <a class="navbar-brand" href="#" onclick="window.history.back();">C++</a>
 
                   <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
-                  <li><a href="./Empleados/Empleados.php">Empleados</a></li>
-                  <li><a href="./Productos/gest.php">Productos</a></li>
-                  <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
+                  <li><a href="../../Empleados/Empleados.php">Empleados</a></li>
+                  <li><a href="../../Productos/gest.php">Productos</a></li>
+                  <li><a href="../../Ventas/Views/CrearVenta.php">Ventas</a></li>
             </ul>
 
         </div>

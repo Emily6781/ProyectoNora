@@ -20,32 +20,25 @@ $clientes = obtenerClientes($conn);
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Crear Ventas</title>
     </head>
-<header>
-    
+    <header>
     <link rel="stylesheet" href="../css/Ventas.css" />
-    
-    <img src="../../Imagenes/Café ++ Cartel.jpg" alt="Café ++" id="imagenC" />
-
+    <img src="../../Recursos/Visuales/Café ++ Cartel.jpg" alt="Café ++" id="imagenC" />
     <br>
-
     <audio controls autoplay loop>
-        <source src="../../Imagenes/P540.wav" type="audio/wav">
-        <source src="../../Imagenes/P540.wav" type="audio/wav">
+        <source src="../../Recursos/Auditivos/P540.wav" type="audio/wav">
+        <source src="../../Recursos/Auditivos/P540.wav" type="audio/wav">
         Tu navegador no soporta la etiqueta de audio.
     </audio>
-
     <h1>"Mucho más que los demás"</h1><br>
 
     <nav>
         <ul>
-        <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
-        <li><a href="">Empleados</a></li>
-        <li><a href="">Productos</a></li>
-        <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
+            <li><a href="../../Clientes/mostrarClientes.php">Clientes</a></li>
+            <li><a href="../../Empleados/Empleados.php">Empleados</a></li>
+            <li><a href="../../Productos/gest.php">Productos</a></li>
+            <li><a href="./CrearVenta.php">Ventas</a></li>
         </ul>
-    </nav>  
-
-
+    </nav>
 </header>
 <body>
 
