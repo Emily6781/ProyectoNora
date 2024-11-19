@@ -1,4 +1,16 @@
+<?php
+require('conexion.php');
 
+// Obtener productos y categorías
+$productos = $conn->query("SELECT * FROM productos ORDER BY Tipo_ID");
+$categorias = [
+    1 => "Postres",
+    2 => "Bebidas",
+    3 => "Desayunos",
+    4 => "Aperitivos",
+    5 => "Comidas"
+];
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -19,8 +31,8 @@
                 <a class="navbar-brand" href="#">C++</a>
 
                   <li><a href="./Clientes/mostrarClientes.php">Clientes</a></li>
-                  <li><a href="./Empleados/Empleados.php">Empleados</a></li>
-                  <li><a href="">Productos</a></li>
+                  <li><a href="">Empleados</a></li>
+                  <li><a href="./Productos/gest.php">Productos</a></li>
                   <li><a href="./Ventas/Views/CrearVenta.php">Ventas</a></li>
             </ul>
         </div>
@@ -44,81 +56,28 @@
 
       <h1>"Mucho más que los demás"</h1><br>
 
-
-
       <div id="listDiv">
-        <h2>Lo más atractivo de nuestro menú</h2>
-        <div class="carousel-container">
-          <div class="carousel-slide">
-
-            <!-- Lista de Postres -->
-            <div class="list-item">
-              <h3>Postres</h3>
-              <ul>
-                <li>Brownie 40$</li>
-                <li>Cheesecake 55$</li>
-                <li>Croissant 35$</li>
-                <li>Muffin de arándanos 60$</li>
-                <li>Pastel de zanahoria 55$</li>
-              </ul>
+            <h2>Lo más atractivo de nuestro menú</h2>
+            <div class="carousel-container">
+                <?php
+                foreach ($categorias as $tipo_id => $nombre_categoria) {
+                    echo "<div class='list-item'>";
+                    echo "<h3>{$nombre_categoria}</h3><ul>";
+                    foreach ($productos as $producto) {
+                        if ($producto['Tipo_ID'] == $tipo_id) {
+                            echo "<li>{$producto['Nombre']} - {$producto['Precio']}</li>";
+                        }
+                    }
+                    echo "</ul></div>";
+                }
+                ?>
             </div>
-
-            <!-- Lista de Bebidas -->
-            <div class="list-item">
-              <h3>Bebidas</h3>
-              <ul>
-                <li>Americano 45$</li>
-                <li>Capuchino 50$</li>
-                <li>Té Chai 35$</li>
-                <li>Frappe de vainilla 50$</li>
-                <li>Chocolate caliente 35$</li>
-              </ul>
-            </div>
-
-            <!-- Lista de Desayunos -->
-            <div class="list-item">
-              <h3>desayunos</h3>
-              <ul>
-                <li>Pan tostado 45$</li>
-                <li>Pan dulce 30$</li>
-                <li>chilaquiles 60$</li>
-                <li>waffles 70$</li>
-                <li>panqueques 70$</li>
-              </ul>
-            </div>
-
-            <!-- Lista de Aperitivos -->
-            <div class="list-item">
-              <h3>Aperitivos</h3>
-              <ul>
-                <li>palomitas de maiz 20$</li>
-                <li>frutos secos (pasa, nuez de macadamia y almendra) 15$</li>
-                <li>Pretzels 25$</li>
-                <li>banderillas 45$</li>
-                <li>Papitas 25$</li>
-              </ul>
-            </div>
-
-            <!-- Lista de Comidas -->
-            <div class="list-item">
-              <h3>Comidas</h3>
-              <ul>
-                <li>Sandwich de pollo 50$</li>
-                <li>panini de 3 quesos 45$</li>
-                <li>Ensalada César 60$</li>
-                <li>Bagel con salmón 75$</li>
-                <li>lonche de pierna 50$</li>
-              </ul>
-            </div>
-          </div>
         </div>
-      </div>
-
       <br>
       <br>
 
       <img src="Recursos/Visuales/Café_+A2.png" alt="Café +A" id="imagenA" />
-      <div id="tableDiv2">
+      <div id="tableDiv">
         <table>
           <h2>Conozca a los integrantes de la familia Café ++</h2>
           <br>
@@ -175,6 +134,11 @@
           <li>
           <br>
           <br>
+            Sucursales en camino:
+            <ul>
+              <li>Café Shyarp (Proximamente)</li>
+              <li>ANSI Café (Proximamente)</li>
+            </ul>
           </li>
         </ul>
         <iframe
@@ -197,33 +161,23 @@
         <ul>
           <li>
             <img src="Recursos/Visuales/Team Tocino.png" alt="Café ++" id="imagenC" />
-            <br>
-            <br>
           </li>
           <li>
             Un videojuego accesible para todos donde se te estudiara como persona
               <img src="Recursos/Visuales/Fase 1.png" alt="Café ++" id="imagenC" />
-              <br>
-              <br>
           </li>
           <li>
             Y luego llegaras a tomar uno de los puestos existentes en nuestra cafeteria
               <img src="Recursos/Visuales/Fase 22.png" alt="Café ++" id="imagenC" />
               <br>
-              <br>
-              <br>
               ¿Quien sabe? a lo mejor encuentras el puesto ideal para tí
           </li>
           <li>
-            <br>
-            <br>
             <a href="Recursos/Ejecutables/bin-EPI.zip" download="archivo.pdf">Descargelo ahora mismo y comience</a>
           </li>
         </ul>
       </div>
       <img src="Recursos/Visuales/Wendy.png" alt="Wendy" id="Monito">
-      <br>
-      <br>
 
       <h2>Cliente Nuevo</h2>
       <form action="clienteNuevo.php" method="post">

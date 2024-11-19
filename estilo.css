@@ -64,6 +64,19 @@ img {
     border: 1px solid darkgoldenrod;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    align-content: center;
+}
+
+#tableDiv2 {
+    background-color: rgb(240, 180, 67);
+    padding: 30px;
+    margin: 20px auto;
+    width: 80%;
+    border: 1px solid darkgoldenrod;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    align-content: center;
+    overflow: hidden;
 }
 
 table {

@@ -1,4 +1,4 @@
-<?php 
+<?php
     $servername = "localhost";
     $database = "proyecto_nora";
     $username = "root";

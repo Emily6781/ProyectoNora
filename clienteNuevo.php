@@ -11,7 +11,7 @@
     $proba = $_POST['Probabilidad'];
     $comenta = $_POST['comenta'];
 
-    $Reseña = "Experiencia en local: $expl, modalidad: $modal, satisfacción del pedido: $spedido, calidad de los alimentos: $calimentos, precios de los productos: $precioP, calificación mesero: $Amesero, probabilidad de que vuelva: $proba y comentario: $comenta . ";
+    $Reseña = "Experiencia en local: $expl, Modalidad: $modal, Satisfacción del pedido: $spedido, Calidad de los alimentos: $calimentos, Precios de los productos: $precioP, Calificación mesero: $Amesero, Probabilidad de que vuelva: $proba  Comentario: $comenta . ";
     require('conexion.php');
 
     $agregar = "INSERT INTO clientes(Nombre, FechaVisita, Edad, Comentario) VALUES('$nombre', '$fecha', '$edad', '$Reseña')";
