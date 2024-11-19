@@ -59,21 +59,32 @@ function obtenerProductoPorID($conn, $producto_id) {
 
 // --- Lógica de manejo del carrito ---
 
-// Recuperar detalles de la venta si se proporciona un venta_id
-if ($venta_id) {
-    $detallesVenta = obtenerDetallesVenta($conn, $venta_id);
+// Verificar si los detalles ya fueron cargados
+if (!isset($_SESSION['detalles_cargados']) || $_SESSION['detalles_cargados'] !== true) {
+    // Recuperar detalles de la venta si se proporciona un venta_id
+    if ($venta_id) {
+        $detallesVenta = obtenerDetallesVenta($conn, $venta_id);
 
-    // Poner los detalles de la venta en el carrito (para modificar las cantidades si ya existen)
-    foreach ($detallesVenta as $detalle) {
-        $producto = obtenerProductoPorID($conn, $detalle['Producto_ID']);
-        $_SESSION['carrito'][$detalle['Producto_ID']] = [
-            'nombre' => $producto['Nombre'],
-            'precio' => $producto['Precio'],
-            'cantidad' => $detalle['Cantidad']
-        ];
+        // Poner los detalles de la venta en el carrito (para modificar las cantidades si ya existen)
+        foreach ($detallesVenta as $detalle) {
+            $producto = obtenerProductoPorID($conn, $detalle['Producto_ID']);
+            $_SESSION['carrito'][$detalle['Producto_ID']] = [
+                'nombre' => $producto['Nombre'],
+                'precio' => $producto['Precio'],
+                'cantidad' => $detalle['Cantidad']
+            ];
+        }
+
+        // Marcar los detalles como cargados
+        $_SESSION['detalles_cargados'] = true;
+
+        // Depuración para confirmar el estado del carrito
+        echo "<script>console.log('Detalles cargados en el carrito: ', " . json_encode($_SESSION['carrito']) . ");</script>";
     }
 }
 
+
+//Metodo para agregar un nuevo objeto en el carrito de venta
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['producto'])) {
     $producto_id = $_POST['producto'];
     $cantidad = isset($_POST["cantidad_$producto_id"]) ? (int)$_POST["cantidad_$producto_id"] : 1;
@@ -100,6 +111,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['producto'])) {
     }
 }
 
+//Elimina un producto del carrito
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminar_producto'])) {
     $producto_id = $_POST['eliminar_producto'];
 
@@ -143,7 +155,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proceder_modificar'])
     try {
         $totalVenta = 0;
 
-        // Verificar los productos eliminados
+        // Recorrer los productos en el carrito para actualizar los detalles de la venta
         foreach ($_SESSION['carrito'] as $producto_id => $item) {
             // Verificar si el producto ya está en los detalles de la venta
             $sqlDetalleExistente = "SELECT * FROM Tdetallesventa WHERE Venta_ID = ? AND Producto_ID = ?";
@@ -151,6 +163,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proceder_modificar'])
             $stmtDetalleExistente->bind_param('ii', $venta_id, $producto_id);
             $stmtDetalleExistente->execute();
             $result = $stmtDetalleExistente->get_result();
+
+            
 
             if ($result->num_rows > 0) {
                 // Si el producto ya existe en los detalles de la venta, actualizar la cantidad
@@ -168,11 +182,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proceder_modificar'])
 
             // Acumular el total de la venta
             $totalVenta += $item['cantidad'] * $item['precio'];
+            $totalVenta += $totalVenta + ($totalVenta * .16);
         }
 
-        // Ahora, eliminar los productos que están en los detalles de la venta pero no en el carrito
+        $detallesVenta = obtenerDetallesVenta($conn, $venta_id);
+
         foreach ($detallesVenta as $detalle) {
+            
+
+            echo "<script>console.log('Procesando detalle: ', {
+                venta_id: $venta_id,
+                producto_id: {$detalle['Producto_ID']},
+                detalle_completo: " . json_encode($detalle) . "
+            });</script>";
+        
             if (!isset($_SESSION['carrito'][$detalle['Producto_ID']])) {
+                // Depurar antes de eliminar
+                echo "<script>console.log('Eliminando producto: ', {
+                    venta_id: $venta_id,
+                    producto_id: {$detalle['Producto_ID']}
+                });</script>";
+        
                 // Si el producto no está en el carrito, eliminarlo de los detalles de la venta
                 $sqlEliminar = "DELETE FROM Tdetallesventa WHERE Venta_ID = ? AND Producto_ID = ?";
                 $stmtEliminar = $conn->prepare($sqlEliminar);
@@ -180,18 +210,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proceder_modificar'])
                 $stmtEliminar->execute();
             }
         }
-
+        
+        // Depurar antes de actualizar el total de la venta
+        echo "<script>console.log('Actualizando total de la venta: ', {
+            totalVenta: $totalVenta,
+            venta_id: $venta_id
+        });</script>";
+        
         // Actualizar el total de la venta en la tabla Ventas
         $sqlActualizarVenta = "UPDATE Ventas SET Total = ? WHERE ID = ?";
         $stmtActualizarVenta = $conn->prepare($sqlActualizarVenta);
         $stmtActualizarVenta->bind_param('ii', $totalVenta, $venta_id);
         $stmtActualizarVenta->execute();
+        
 
         // Confirmar la transacción
         mysqli_commit($conn);
 
-        // Limpiar el carrito y mostrar mensaje de éxito
-        $_SESSION['carrito'] = [];
+
+        if ($venta_id) {
+            $detallesVenta = obtenerDetallesVenta($conn, $venta_id);
+        
+            // Poner los detalles de la venta en el carrito (para modificar las cantidades si ya existen)
+            foreach ($detallesVenta as $detalle) {
+                $producto = obtenerProductoPorID($conn, $detalle['Producto_ID']);
+                $_SESSION['carrito'][$detalle['Producto_ID']] = [
+                    'nombre' => $producto['Nombre'],
+                    'precio' => $producto['Precio'],
+                    'cantidad' => $detalle['Cantidad']
+                ];
+            }
+        }
+        
         echo "<p>Los detalles de la venta se han modificado correctamente.</p>";
     } catch (Exception $e) {
         // En caso de error, deshacer la transacción
@@ -199,5 +249,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['proceder_modificar'])
         echo "<p>Error al modificar los detalles de la venta: " . $e->getMessage() . "</p>";
     }
 }
+
 
 ?>
