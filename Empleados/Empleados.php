@@ -42,7 +42,72 @@
       <br>
       <br>
 
-      <h1>"Mucho más que los demás"</h1><br>
+
+  /*  // Comprobamso si recibimos datos por POST
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        // Recogemos variables
+        $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
+        $nombre = isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : null;
+        $apellidop = isset($_REQUEST['apellidop']) ? $_REQUEST['apellidop'] : null;
+        $apellidom = isset($_REQUEST['apellidom']) ? $_REQUEST['apellidom'] : null;
+        $fechanac = isset($_REQUEST['fechanac']) ? $_REQUEST['fechanac'] : null;
+        $puestos = isset($_REQUEST['puestos']) ? $_REQUEST['puestos'] : null
+      >//  $horario = isset($_REQUEST['horario']) ? $_REQUEST['horario'] : null;
+
+        // Variables
+        require('../conexion.php');
+        $sql = "SELECT * FROM empleados";
+        $datos = mysqli_query($conn, $sql);
+        if(!$datos)
+        // Prepara INSERT
+
+        $miInsert = $miPDO->prepare('INSERT INTO empleados(ID, Nombre, ApellidoP, ApellidoM, FechaNac, Puestos_ID, Horario_ID) VALUES (id, nombre, apellidop,'[value-4]','[value-5]','[value-6]','[value-7]'));
+        // Ejecuta INSERT con los datos
+        $miInsert->execute(
+            array(
+                'titulo' => $titulo,
+                'autor' => $autor,
+                'disponible' => $disponible
+            )
+        );
+
+        // Redireccionamos a Leer
+    header("location: Proyeccto.html");
+    }
+
+    <!DOCTYPE html>
+    <html lang="es">
+    <body>
+      <h1>¿Desea registrar un nuevo empleado?</h1><br>
+    <form action="empleados.php" method="post">
+
+
+    <br>Nombre<br>
+    <input type="text" name="name"> <br>
+
+    <br>Apellido Paterno<br>
+    <input type="text" name="ApeP"> <br>
+
+    <br>Apellido Materno<br>
+    <input type="text" name="ApeM"> <br>
+
+    <br>Fecha de nacimiento<br>
+    <input type="date" name="FechaNac"> <br>
+
+    <br>
+    <br>
+    <input type="submit" value="Enviar"> <input type="reset" value="Borrar">
+
+    </form>*/
+
+
+<br>
+<br>
+<br>
+    </body>
+    </html>
+
 
 
       <table>

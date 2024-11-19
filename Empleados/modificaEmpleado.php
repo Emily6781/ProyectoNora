@@ -62,8 +62,13 @@
               "<label for='FechaNac'>Fecha de Nacimiento:</label>".
               "<input type='date' name='FechaNac' value=".$rows['FechaNac'].">".
               "<label for='ApellidoM'>Apellido Materno:</label>".
-              "<SELECT name='Puestos_ID' value=".$rows['Puestos_ID'].">".
-              "<label for='Puestos_ID'>Puesto laboral:</label>".
+              "<label class=txt>Tipo Puesto</label>
+                <select class="label-1" name="tipo_empresa" required>
+                    <option value="" disabled selected>Seleccione el tipo de empresa</option>
+                    {% for tipo in tipos_empresas %}
+                    <option value="{{ tipo.id }}">{{ tipo.tipo }}</option>
+                    {% endfor %}
+                </select><br><br>
               "<input type='date' name='FechaNac' value=".$rows['FechaNac'].">".
               "<input type='submit' value='Modificar datos' name'ok'>".
               "</form>";
