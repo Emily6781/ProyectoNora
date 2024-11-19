@@ -56,57 +56,57 @@ require('../../conexion.php');
                         <button type="submit" class="button-search">Buscar ventas por ID</button>
                     </div>
                 </form>
-                
 
-                <form method="POST" action="">
-
-                    <div class="products-table">
-                        <h2>Ventas Realizadas</h2>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>ID de Venta</th>
-                                    <th>Producto</th>
-                                    <th>Total de Venta</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if (!empty($ventasConDetalles)): ?>
-                                    <?php foreach ($ventasConDetalles as $venta): ?>
-                                        <tr>
-                                            <td><?php echo htmlspecialchars($venta['VentaID']); ?></td>
-                                            <td><?php echo htmlspecialchars($venta['Productos']); ?></td>
-                                            <td>$<?php echo htmlspecialchars(number_format($venta['TotalVenta'], 2)); ?></td>
-                                            <td>
-                                                <!-- Botón de modificar -->
-                                                <form method="POST" action="EditarVenta.php" style="display: inline;">
-                                                    <input type="hidden" name="venta_id" value="<?php echo $venta['VentaID']; ?>">
-                                                    <button type="submit" class="btn-modify">Modificar</button>
-                                                </form>
-
-                                                <!-- Botón de borrar -->
-                                                <form method="POST" action="" style="display: inline;">
-                                                    <input type="hidden" name="venta_id" value="<?php echo $venta['VentaID']; ?>">
-                                                    <button type="submit" name="borrar_venta" 
-                                                        class="btn-delete" 
-                                                        onclick="return confirm('¿Estás seguro de que deseas borrar esta venta?');">
-                                                        Borrar
-                                                    </button>
-                                                </form>    
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                <?php else: ?>
+                <div class="products-table">
+                    <h2>Ventas Realizadas</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID de Venta</th>
+                                <th>Producto</th>
+                                <th>Total de Venta</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php if (!empty($ventasConDetalles)): ?>
+                                <?php foreach ($ventasConDetalles as $venta): ?>
                                     <tr>
-                                        <td colspan="3">No hay ventas registradas.</td>
-                                    </tr>
-                                <?php endif; ?>                            
-                            </tbody>
-                        </table>
-                    </div>
+                                        <td><?php echo htmlspecialchars($venta['VentaID']); ?></td>
+                                        <td><?php echo htmlspecialchars($venta['Productos']); ?></td>
+                                        <td>$<?php echo htmlspecialchars(number_format($venta['TotalVenta'], 2)); ?></td>
+                                        <td>
+                                            
+                                            <!-- Botón de modificar -->
+                                            <!-- Botón de modificar -->
+                                            <form method="POST" action="EditarVenta.php">
+                                                <input type="hidden" name="venta_id" value="<?php echo $venta['VentaID']; ?>">
+                                                <button type="submit" class="btn-modify">Modificar</button>
+                                            </form>
 
-                </form>
+
+                                            <!-- Botón de borrar -->
+                                            <form method="POST" action="" style="display: inline;">
+                                                <input type="hidden" name="venta_id" value="<?php echo $venta['VentaID']; ?>">
+                                                <button type="submit" name="borrar_venta" 
+                                                    class="btn-delete" 
+                                                    onclick="return confirm('¿Estás seguro de que deseas borrar esta venta?');">
+                                                    Borrar
+                                                </button>
+                                            </form>    
+                                        </td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="3">No hay ventas registradas.</td>
+                                </tr>
+                            <?php endif; ?>                            
+                        </tbody>
+                    </table>
+                </div>
+
+            
             </div>
         </div>
     </body>
