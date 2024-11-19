@@ -43,63 +43,101 @@
       <br>
 
 
-  /*  // Comprobamso si recibimos datos por POST
+      <?php
+    // Comprobamos si recibimos datos por POST
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // Recogemos variables
-        $id = isset($_REQUEST['id']) ? $_REQUEST['id'] : null;
-        $nombre = isset($_REQUEST['nombre']) ? $_REQUEST['nombre'] : null;
-        $apellidop = isset($_REQUEST['apellidop']) ? $_REQUEST['apellidop'] : null;
-        $apellidom = isset($_REQUEST['apellidom']) ? $_REQUEST['apellidom'] : null;
-        $fechanac = isset($_REQUEST['fechanac']) ? $_REQUEST['fechanac'] : null;
-        $puestos = isset($_REQUEST['puestos']) ? $_REQUEST['puestos'] : null
-      >//  $horario = isset($_REQUEST['horario']) ? $_REQUEST['horario'] : null;
+        // Recogemos las variables del formulario
+        $nombre = isset($_POST['name']) ? $_POST['name'] : null;
+        $apellidop = isset($_POST['ApeP']) ? $_POST['ApeP'] : null;
+        $apellidom = isset($_POST['ApeM']) ? $_POST['ApeM'] : null;
+        $fechanac = isset($_POST['FechaNac']) ? $_POST['FechaNac'] : null;
+        $puesto = isset($_POST['puesto']) ? $_POST['puesto'] : null;
+        $horario = isset($_POST['horario']) ? $_POST['horario'] : null;
 
-        // Variables
+        // Validamos que no haya campos vacíos
+        if (!$nombre || !$apellidop || !$apellidom || !$fechanac || !$puesto || !$horario) {
+            echo "Todos los campos son obligatorios.";
+            exit;
+        }
+
+        // Conectamos a la base de datos
         require('../conexion.php');
-        $sql = "SELECT * FROM empleados";
-        $datos = mysqli_query($conn, $sql);
-        if(!$datos)
-        // Prepara INSERT
 
-        $miInsert = $miPDO->prepare('INSERT INTO empleados(ID, Nombre, ApellidoP, ApellidoM, FechaNac, Puestos_ID, Horario_ID) VALUES (id, nombre, apellidop,'[value-4]','[value-5]','[value-6]','[value-7]'));
-        // Ejecuta INSERT con los datos
-        $miInsert->execute(
-            array(
-                'titulo' => $titulo,
-                'autor' => $autor,
-                'disponible' => $disponible
-            )
-        );
+        // Preparamos el INSERT de forma segura con prepared statements
+        $miInsert = $conn->prepare('INSERT INTO empleados (Nombre, ApellidoP, ApellidoM, FechaNac, Puestos_ID, Horario_ID) VALUES (?, ?, ?, ?, ?, ?)');
 
-        // Redireccionamos a Leer
-    header("location: Proyeccto.html");
+        // Verificamos que se haya preparado correctamente
+        if (!$miInsert) {
+            echo "Error en la preparación de la consulta: " . $conn->error;
+            exit;
+        }
+
+        // Enlazamos los parámetros
+        $miInsert->bind_param('ssssii', $nombre, $apellidop, $apellidom, $fechanac, $puesto, $horario);
+
+        // Ejecutamos la consulta
+        if ($miInsert->execute()) {
+            echo "Empleado registrado exitosamente.";
+        } else {
+            echo "Error al registrar el empleado: " . $miInsert->error;
+        }
+
+        // Cerramos la conexión
+        $miInsert->close();
+        $conn->close();
+
+        // Redireccionamos al HTML
+        header("Location: Proyeccto.html");
+        exit;
     }
+    ?>
 
     <!DOCTYPE html>
     <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro de Empleados</title>
+    </head>
     <body>
-      <h1>¿Desea registrar un nuevo empleado?</h1><br>
-    <form action="empleados.php" method="post">
+        <h1>¿Desea registrar un nuevo empleado?</h1>
+        <form action="empleados.php" method="post">
+            <br>Nombre<br>
+            <input type="text" name="name" required> <br>
 
+            <br>Apellido Paterno<br>
+            <input type="text" name="ApeP" required> <br>
 
-    <br>Nombre<br>
-    <input type="text" name="name"> <br>
+            <br>Apellido Materno<br>
+            <input type="text" name="ApeM" required> <br>
 
-    <br>Apellido Paterno<br>
-    <input type="text" name="ApeP"> <br>
+            <br>Fecha de nacimiento<br>
+            <input type="date" name="FechaNac" required> <br>
 
-    <br>Apellido Materno<br>
-    <input type="text" name="ApeM"> <br>
+            <br>Puesto<br>
+            <select name="puesto" required>
+                <option value="">Seleccione un puesto</option>
+                <option value="1">Gerente</option>
+                <option value="2">Auxiliar de cocina</option>
+                <option value="3">Encargado de Limpieza</option>
+                <option value="4">Mesero</option>
+                <!-- Agregar más opciones según la base de datos -->
+            </select> <br>
 
-    <br>Fecha de nacimiento<br>
-    <input type="date" name="FechaNac"> <br>
+            <br>Horario<br>
+            <select name="horario" required>
+                <option value="">Seleccione un horario</option>
+                <option value="1">Matutino</option>
+                <option value="2">Vespertino</option>
+                <!-- Agregar más opciones según la base de datos -->
+            </select> <br>
 
-    <br>
-    <br>
-    <input type="submit" value="Enviar"> <input type="reset" value="Borrar">
-
-    </form>*/
+            <br><br>
+            <input type="submit" value="Enviar"> <input type="reset" value="Borrar">
+        </form>
+    </body>
+    </html>
 
 
 <br>

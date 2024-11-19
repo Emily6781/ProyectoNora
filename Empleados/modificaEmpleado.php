@@ -46,42 +46,60 @@
       <h1>"Mucho más que los demás"</h1><br>
 
 
-  <div id="encuesta">
-  <form action='EditaEmpleado.php' method='POST'>
+      <div id="encuesta">
+      <form action="EditaEmpleado.php" method="POST">
 
-  <?php
-      while($rows = $datos->fetch_assoc()){
-          echo
-              "<input type='hidden' name='id' value=".$rows['ID'].">".
-              "<label for='nombre'>Nombre Empleado:</label>".
-              "<input type='text' name='nombre' value=".$rows['Nombre'].">".
-              "<label for='ApellidoP'>Apellido Paterno:</label>".
-              "<input type='text' name='ApellidoP' value=".$rows['ApellidoP'].">".
-              "<label for='ApellidoM'>Apellido Materno:</label>".
-              "<input type='text' name='ApellidoM' value=".$rows['ApellidoM'].">".
-              "<label for='FechaNac'>Fecha de Nacimiento:</label>".
-              "<input type='date' name='FechaNac' value=".$rows['FechaNac'].">".
-              "<label for='ApellidoM'>Apellido Materno:</label>".
-              "<label class=txt>Tipo Puesto</label>
-                <select class="label-1" name="tipo_empresa" required>
-                    <option value="" disabled selected>Seleccione el tipo de empresa</option>
-                    {% for tipo in tipos_empresas %}
-                    <option value="{{ tipo.id }}">{{ tipo.tipo }}</option>
-                    {% endfor %}
-                </select><br><br>
-              "<input type='date' name='FechaNac' value=".$rows['FechaNac'].">".
-              "<input type='submit' value='Modificar datos' name'ok'>".
-              "</form>";
+      <?php
+      // Iteramos sobre los datos
+      while ($rows = $datos->fetch_assoc()) {
+          echo "<input type='hidden' name='id' value='" . $rows['ID'] . "'>" .
+              "<label for='nombre'>Nombre Empleado:</label>" .
+              "<input type='text' name='nombre' value='" . $rows['Nombre'] . "' required><br>" .
+
+              "<label for='ApellidoP'>Apellido Paterno:</label>" .
+              "<input type='text' name='ApellidoP' value='" . $rows['ApellidoP'] . "' required><br>" .
+
+              "<label for='ApellidoM'>Apellido Materno:</label>" .
+              "<input type='text' name='ApellidoM' value='" . $rows['ApellidoM'] . "' required><br>" .
+
+              "<label for='FechaNac'>Fecha de Nacimiento:</label>" .
+              "<input type='date' name='FechaNac' value='" . $rows['FechaNac'] . "' required><br>" .
+
+              "<label for='puestos'>Puesto:</label>" .
+              "<select name='puestos' required>" .
+                  "<option value='' disabled selected>Seleccione el puesto</option>";
+
+          // Cargar las opciones de puestos
+          foreach ($puestos as $puesto) {
+              $selected = ($puesto['id'] == $rows['Puestos_ID']) ? "selected" : "";
+              echo "<option value='" . $puesto['id'] . "' $selected>" . $puesto['nombre'] . "</option>";
+          }
+
+          echo "</select><br><br>" .
+
+              "<label for='horarios'>Horario:</label>" .
+              "<select name='horarios' required>" .
+                  "<option value='' disabled selected>Seleccione el horario</option>";
+
+          // Cargar las opciones de horarios
+          foreach ($horarios as $horario) {
+              $selected = ($horario['id'] == $rows['Horario_ID']) ? "selected" : "";
+              echo "<option value='" . $horario['id'] . "' $selected>" . $horario['descripcion'] . "</option>";
+          }
+
+          echo "</select><br><br>" .
+
+              "<input type='submit' value='Modificar datos' name='ok'>";
       }
-              mysqli_close($conn);
-  ?>
+
+      // Cerramos la conexión
+      mysqli_close($conn);
+      ?>
+      </form>
   </div>
 
-</form>
-</body>
+  <footer>
+      <p>Hecho por Café++ en colaboración con Team Tocino. Puerto Vallarta, Jal. 19 de Noviembre 2024.</p><br>
+  </footer>
 
-<footer>
-  <p>Hecho por Café++ en colobaración con Team Tocino. Puerto Vallarta, Jal. 19 de Noviembre 2024.</p><br>
-</footer>
-
-</html>
+  </html>
