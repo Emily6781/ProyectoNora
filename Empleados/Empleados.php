@@ -45,53 +45,66 @@
 
       <?php
     // Comprobamos si recibimos datos por POST
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Verificar si la solicitud es POST
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-        // Recogemos las variables del formulario
-        $nombre = isset($_POST['name']) ? $_POST['name'] : null;
-        $apellidop = isset($_POST['ApeP']) ? $_POST['ApeP'] : null;
-        $apellidom = isset($_POST['ApeM']) ? $_POST['ApeM'] : null;
-        $fechanac = isset($_POST['FechaNac']) ? $_POST['FechaNac'] : null;
-        $puesto = isset($_POST['puesto']) ? $_POST['puesto'] : null;
-        $horario = isset($_POST['horario']) ? $_POST['horario'] : null;
+    // Recoger los datos del formulario
+    $nombre = isset($_POST['name']) ? $_POST['name'] : null;
+    $apellidop = isset($_POST['ApeP']) ? $_POST['ApeP'] : null;
+    $apellidom = isset($_POST['ApeM']) ? $_POST['ApeM'] : null;
+    $fechanac = isset($_POST['FechaNac']) ? $_POST['FechaNac'] : null;
+    $puesto = isset($_POST['puesto']) ? intval($_POST['puesto']) : null;
+    $horario = isset($_POST['horario']) ? intval($_POST['horario']) : null;
 
-        // Validamos que no haya campos vacíos
-        if (!$nombre || !$apellidop || !$apellidom || !$fechanac || !$puesto || !$horario) {
-            echo "Todos los campos son obligatorios.";
-            exit;
-        }
-
-        // Conectamos a la base de datos
-        require('../conexion.php');
-
-        // Preparamos el INSERT de forma segura con prepared statements
-        $miInsert = $conn->prepare('INSERT INTO empleados (Nombre, ApellidoP, ApellidoM, FechaNac, Puestos_ID, Horario_ID) VALUES (?, ?, ?, ?, ?, ?)');
-
-        // Verificamos que se haya preparado correctamente
-        if (!$miInsert) {
-            echo "Error en la preparación de la consulta: " . $conn->error;
-            exit;
-        }
-
-        // Enlazamos los parámetros
-        $miInsert->bind_param('ssssii', $nombre, $apellidop, $apellidom, $fechanac, $puesto, $horario);
-
-        // Ejecutamos la consulta
-        if ($miInsert->execute()) {
-            echo "Empleado registrado exitosamente.";
-        } else {
-            echo "Error al registrar el empleado: " . $miInsert->error;
-        }
-
-        // Cerramos la conexión
-        $miInsert->close();
-        $conn->close();
-
-        // Redireccionamos al HTML
-        header("Location: Proyeccto.html");
+    // Validar campos obligatorios
+    if (!$nombre || !$apellidop || !$apellidom || !$fechanac || !$puesto || !$horario) {
+        echo "<p>Todos los campos son obligatorios.</p>";
         exit;
     }
-    ?>
+
+    // Conectar a la base de datos
+    require('../conexion.php');
+
+    // Iniciar una transacción
+    mysqli_begin_transaction($conn);
+
+    try {
+        // Preparar el INSERT para registrar al empleado
+        $sqlEmpleado = "INSERT INTO empleados (Nombre, ApellidoP, ApellidoM, FechaNac, Puestos_ID, Horario_ID) 
+                        VALUES (?, ?, ?, ?, ?, ?)";
+        $stmtEmpleado = mysqli_prepare($conn, $sqlEmpleado);
+
+        // Verificar si la preparación fue exitosa
+        if (!$stmtEmpleado) {
+            throw new Exception("Error en la preparación de la consulta: " . mysqli_error($conn));
+        }
+
+        // Vincular parámetros y ejecutar la consulta
+        mysqli_stmt_bind_param($stmtEmpleado, "ssssii", $nombre, $apellidop, $apellidom, $fechanac, $puesto, $horario);
+        mysqli_stmt_execute($stmtEmpleado);
+
+        // Confirmar la transacción
+        mysqli_commit($conn);
+
+        echo "<p>Empleado registrado exitosamente.</p>";
+
+        // Redireccionar al HTML
+        header("Location: ../Proyeccto.html");
+        exit;
+
+    } catch (Exception $e) {
+        // En caso de error, deshacer la transacción
+        mysqli_rollback($conn);
+        echo "<p>Error al registrar el empleado: " . $e->getMessage() . "</p>";
+    } finally {
+        // Cerrar la conexión y las declaraciones
+        if (isset($stmtEmpleado)) {
+            mysqli_stmt_close($stmtEmpleado);
+        }
+        mysqli_close($conn);
+    }
+}
+?>
 
     <!DOCTYPE html>
     <html lang="es">
